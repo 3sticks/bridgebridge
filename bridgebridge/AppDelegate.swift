@@ -30,21 +30,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 
-    //gets called in login/register
-    //func to pass to home page or to tabbar
-    func login(){
-        
-        //refer to main storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        //store tabbar object from main.storyboard in tabbar variable
-        let tabBar = storyboard.instantiateViewController(withIdentifier: "dick")
-        
-        //present tabbar that is stored in tabbar var
-        window?.rootViewController = tabBar
-        
-        //FIME NOT WORKING
-    }
+//    //gets called in login/register
+//    //func to pass to home page or to tabbar
+//    //TODO this is depricated
+//    func login(){
+//
+//        //refer to main storyboard
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        //store tabbar object from main.storyboard in tabbar variable
+//        let tabBar = storyboard.instantiateViewController(withIdentifier: "dick")
+//
+//        //present tabbar that is stored in tabbar var
+//        window?.rootViewController = tabBar
+//
+//        //FIME NOT WORKING
+//    }
     
     
     

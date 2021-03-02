@@ -31,6 +31,8 @@ class LogInViewController: UIViewController {
             usernameIncorrectLabel.isHidden = true
         //hide the password too
         passwordIncorrectLabel.isHidden = true
+
+            self.hideKeyboardWhenTappedAround() //hide keyboard .. pulled from extenstion on the register vc
             //usernameIncorrectLabel.removeFromSuperview()
         // Do any additional setup after loading the view.
     }
@@ -118,7 +120,7 @@ class LogInViewController: UIViewController {
                                      if id != nil {
                                         print(parseJSON)
                                         
-                                        // save user information we received from our host
+                                        // save user information we received from our host to userdefaults user variable from scene delegate
                                         UserDefaults.standard.set(parseJSON, forKey: "parseJSON")//save
                                         user = UserDefaults.standard.value(forKey: "parseJSON") as? NSDictionary //assign to user variable
                 

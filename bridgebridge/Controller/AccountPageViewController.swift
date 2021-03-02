@@ -34,6 +34,29 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
         usernameLabel.text = username //fixme do we need this if the username is the nav title?
         
         
+        // get user profile picture
+        if ava != "" {
+            
+            // url path to image
+            let imageURL = URL(string: ava!)!
+            
+            // communicate back user as main queue
+            DispatchQueue.main.async(execute: {
+                
+                // get data from image url
+                let imageData = try? Data(contentsOf: imageURL)
+                
+                // if data is not nill assign it to ava.Img
+                if imageData != nil {
+                    DispatchQueue.main.async(execute: {
+                        self.profileImage.image = UIImage(data: imageData!)
+                    })
+                }
+            })
+            
+        }
+        
+        
         //make the navigation title the username
         self.navigationItem.title = username
 
@@ -163,10 +186,19 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
                        case .success(_):
                         do {
                         
-                        let dictionary = try JSONSerialization.jsonObject(with: data.data!, options: .fragmentsAllowed) as! NSDictionary
+                        let dictionary = try JSONSerialization.jsonObject(with: data.data!, options: .fragmentsAllowed) as! NSDictionary //does this need to be nmutable containers?
                           
                             print("Success!")
                             print(dictionary)
+                            
+                            //TODO maybeeeee add ina guard let here
+                            
+                            // save user information we received from our host to userdefaults
+                            //pasrse json is the key we used for the user value
+                            UserDefaults.standard.set(dictionary, forKey: "parseJSON")//save /////dictionary instead of parsejson.. think will work
+                            user = UserDefaults.standard.value(forKey: "parseJSON") as? NSDictionary //assign to user variable
+
+                            
                        }
                        catch {
                           // catch error.
@@ -186,77 +218,38 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
             })
     }
     
-    //burying this for now
-//    //upload avatar image to server
-//    func uploadAva(){
+    //Logout the user. TODO bury this in a drawer one day
+    @IBAction func logout_clicked(_ sender: Any) {
+        
+        
+                //want to remove all user info
+                    // remove saved information
+                    UserDefaults.standard.removeObject(forKey: "parseJSON") //parsejson matches user creation
+                    UserDefaults.standard.synchronize()
+        // go to mainlanding page (instant jump)
+                DispatchQueue.main.async(execute: { //todo what the hell is this
+                  sceneDelegate?.logout()
+                })
+        
+        
+        ///note -- the above rolls back to the main landing page (login/register). the below presents a popover segue. dont know what i like better. keeping both around.
 //
-//        let id = user!["id"] as! String //cant make this user name since url uses id
+
 //
+//            // go to login page
+//        //DECLARE VARIABLE THAT STORES THE LOGIN PAGE
+//            let LogInViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInViewController
+//            self.present(LogInViewController, animated: true, completion: nil)
 //
-//        //send mysql request
-//       let url = URL(string: "https://mybridgeapp.com/uploadava.php")! //path to login file
-//       // let url = URL(string: "http://localhost:8080/opt/lampp/htdocs/bridge/uploadava.php")!
-//        var request = URLRequest(url: url)
-//
-//        request.httpMethod = "POST" //using post method
-//
-//        // param to be sent in body of request
-//        let param = ["id" : id]//can add other params, like username, here (or just pass username)
-//
-//        // body
-//        let boundary = "Boundary-\(UUID().uuidString)"
-//        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-//
-//
-//
-//        // compress image and assign to imageData var
-//        let imageData = profileImage.image!.jpegData(compressionQuality: 0.5)
-//        print("imafe data description \(String(describing: imageData?.description))")
-//
-//
-//        // if not compressed, return ... do not continue to code
-//        if imageData == nil {
-//            return
-//        }
-//
-//        // ... body
-//        request.httpBody = createBodyWithParams(param, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
-//
-//        request.log()
-//        // launch session
-//        URLSession.shared.dataTask(with: request) { data, response, error in
-//
-//            // get main queue to communicate back to user
-//            DispatchQueue.main.async(execute: {
-//
-//                if error == nil{
-//
-//                    do{
-//                        // json containes $returnArray from php
-//                        let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-//
-//                        guard let parseJSON = json else {
-//                            print("Error while parsing")
-//                            return
-//                        }
-//                        print("data is here \(data!)")
-//
-//                        print(parseJSON)
-//                    }  catch {
-//                        print("caught an error: \(error)")
-//                    }
-//
-//
-//                } else {
-//                    print(error)
-//                }
-//
-//            })
-//
-//        }.resume()
-//
-//    }
+
+    }
+    
+    
+    
 }
+
+
+//Dont think these are needed anymore
 
 
 //Creating protocol of appending string to a variable of type data

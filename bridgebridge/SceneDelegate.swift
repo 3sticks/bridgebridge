@@ -34,10 +34,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         //store tabbar object from main.storyboard in tabbar variable
-        let tabBar = storyboard.instantiateViewController(withIdentifier: "homePageID")
+        let tabBar = storyboard.instantiateViewController(withIdentifier: "homePageID") //homepage id is the storyboard ID of the main tab bar VC, this is the landing page after logging in.
         
         //present tabbar that is stored in tabbar var
         window?.rootViewController = tabBar
+    }
+    
+    func logout(){
+        //refer to main storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let landing = storyboard.instantiateViewController(withIdentifier: "loginNavCon") //INSTEAD OF logging out to the landing page VC, log out to the nav controller. this makes sure the views are then within the nav controller, and not popover segues. nav doesnt have a vc, but we gave it an id (loginNavCon)
+        window?.rootViewController = landing
+        
     }
     
     

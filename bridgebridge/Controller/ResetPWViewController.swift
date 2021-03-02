@@ -20,6 +20,7 @@ class ResetPWViewController: UIViewController {
         
         //hide the email not found label
         notFoundLabel.isHidden = true
+        self.hideKeyboardWhenTappedAround() //hide keyboard .. pulled from extenstion on the register vc
         
         //hides the back button -- just a demo, not keeping here
         //self.navigationItem.setHidesBackButton(true, animated: false)

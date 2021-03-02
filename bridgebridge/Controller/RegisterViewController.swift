@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
 
     @IBOutlet weak var nameTextField: UITextField!
@@ -18,8 +18,30 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
 
 
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() //HIDE THE KEYBOARD WHEN TAPPED OUTSIDE TEXT BOXS!!! uses the extension at the bottom of this vc
+    }
     //TODO validate password. how?
     //TODO validate email actually an email adddress. how?
+    
+    //This makes the cursor jump to the next box when the "next" button is pressed. needed to add the ui textfielddelegate to the top up there, then need to drag each text box's delegate outlet to the VC little boc thing, then itll work.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      if textField == nameTextField {
+         textField.resignFirstResponder()//"When a text view resigns its first responder status, it ends its current editing session, notifies its delegate of that fact, and dismisses the keyboard."
+        userNameTextField.becomeFirstResponder()
+      } else if textField == userNameTextField {
+         textField.resignFirstResponder()
+        emailTextField.becomeFirstResponder()
+      } else if textField == emailTextField {
+         textField.resignFirstResponder()
+        passwordTextField.becomeFirstResponder()
+      } else if textField == passwordTextField {
+         textField.resignFirstResponder()
+      }
+     return true
+      } //last return key is "done"
     
 
     @IBAction func registerPressed(_ sender: UIButton) { //what happens when user presses register button
@@ -131,7 +153,15 @@ class RegisterViewController: UIViewController {
         }
     }
 
-
-
-
-//need to send it to next screen lol 
+//anytime user taps outside the text boxes, kill the keyboard
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

@@ -18,6 +18,7 @@ class HomeNavigationViewController: UINavigationController {
         ///i like the white nav bar, i am keeping it white
 //        // Do any additional setup after loading the view.
 //
+        //THIS IS DONE THROUGH GLOBAL TINT I THINK?
 //        //color of title at top of navigation controler
 //        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white] //which one to use?
 //        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
