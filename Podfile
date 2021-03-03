@@ -7,6 +7,7 @@ target 'bridgebridge' do
 
   # Pods for bridgebridge
  pod "Alamofire"
+ pod "SideMenu"
 
   target 'bridgebridgeTests' do
     inherit! :search_paths

@@ -228,7 +228,7 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
                     UserDefaults.standard.synchronize()
         // go to mainlanding page (instant jump)
                 DispatchQueue.main.async(execute: { //todo what the hell is this
-                  sceneDelegate?.logout()
+                  sceneDelegate?.logout()//use logout function
                 })
         
         
