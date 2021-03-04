@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1A0AC3E4E693518EAADDE919 /* Pods_bridgebridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF252DE54ED55DF66DD24B27 /* Pods_bridgebridge.framework */; };
+		9A3694ED25F009BD00A85F56 /* UITextViewToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3694EC25F009BD00A85F56 /* UITextViewToolBar.swift */; };
 		9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */; };
+		9AAE48C625EF2E57005EEA60 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE48C525EF2E57005EEA60 /* NewPostViewController.swift */; };
 		9AEEAED025E4986D00A1D75E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEAECF25E4986D00A1D75E /* AppDelegate.swift */; };
 		9AEEAED225E4986D00A1D75E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEAED125E4986D00A1D75E /* SceneDelegate.swift */; };
 		9AEEAEDA25E4986D00A1D75E /* bridgebridge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEAED825E4986D00A1D75E /* bridgebridge.xcdatamodeld */; };
@@ -41,7 +43,9 @@
 
 /* Begin PBXFileReference section */
 		897F8E495305F56AB9A1938D /* Pods-bridgebridgeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bridgebridgeTests.debug.xcconfig"; path = "Target Support Files/Pods-bridgebridgeTests/Pods-bridgebridgeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9A3694EC25F009BD00A85F56 /* UITextViewToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewToolBar.swift; sourceTree = "<group>"; };
 		9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
+		9AAE48C525EF2E57005EEA60 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		9AEEAECC25E4986D00A1D75E /* bridgebridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bridgebridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AEEAECF25E4986D00A1D75E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AEEAED125E4986D00A1D75E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +102,6 @@
 				897F8E495305F56AB9A1938D /* Pods-bridgebridgeTests.debug.xcconfig */,
 				E7C588DB581D2811FB00BAF8 /* Pods-bridgebridgeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -167,6 +170,7 @@
 				9AEEAF1025E7477B00A1D75E /* HomeNavigationViewController.swift */,
 				9AEEAF1225E74F3B00A1D75E /* TabBarViewController.swift */,
 				9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */,
+				9AAE48C525EF2E57005EEA60 /* NewPostViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				9AEEAF0725E498EB00A1D75E /* Post.swift */,
+				9A3694EC25F009BD00A85F56 /* UITextViewToolBar.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -360,10 +365,12 @@
 			files = (
 				9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */,
 				9AEEAF0E25E5EA1900A1D75E /* EmailResestPopViewController.swift in Sources */,
+				9A3694ED25F009BD00A85F56 /* UITextViewToolBar.swift in Sources */,
 				9AEEAF1125E7477B00A1D75E /* HomeNavigationViewController.swift in Sources */,
 				9AEEAF0825E498EB00A1D75E /* Post.swift in Sources */,
 				9AEEAF0625E498D000A1D75E /* MessageCell.swift in Sources */,
 				9AEEAF1325E74F3B00A1D75E /* TabBarViewController.swift in Sources */,
+				9AAE48C625EF2E57005EEA60 /* NewPostViewController.swift in Sources */,
 				9AEEAEFC25E498C500A1D75E /* LandingPageMainViewController.swift in Sources */,
 				9AEEAEFD25E498C500A1D75E /* LogInViewController.swift in Sources */,
 				9AEEAEFF25E498C500A1D75E /* RegisterViewController.swift in Sources */,

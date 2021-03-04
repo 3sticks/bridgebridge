@@ -123,6 +123,7 @@ class LogInViewController: UIViewController {
                                         // save user information we received from our host to userdefaults user variable from scene delegate
                                         UserDefaults.standard.set(parseJSON, forKey: "parseJSON")//save
                                         user = UserDefaults.standard.value(forKey: "parseJSON") as? NSDictionary //assign to user variable
+                                        //THIS SETS USER FOR THIS DEVICE UNTIL LOGOIT
                 
                                       // go to tabbar / home page
                                               DispatchQueue.main.async(execute: { //todo what the hell is this

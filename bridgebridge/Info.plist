@@ -57,6 +57,8 @@
 	<string>This app wants the ability to use your camera. </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app wants to access your photos. </string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app wants to use the microphone. </string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -64,10 +66,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 </dict>
 </plist>

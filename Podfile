@@ -8,6 +8,9 @@ target 'bridgebridge' do
   # Pods for bridgebridge
  pod "Alamofire"
  pod "SideMenu"
+ pod "YPImagePicker"
+
+
 
   target 'bridgebridgeTests' do
     inherit! :search_paths

@@ -9,29 +9,62 @@
 
 //todo edit profile picture -- edit profile,jump to new view controller. guy has it in his udemy shit
 import UIKit
+import SideMenu
 import Alamofire
+import YPImagePicker
 
-class AccountPageViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {//through the navigation controller, we open the picker controller to select an image
+class AccountPageViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate {//through the navigation controller, we open the picker controller to select an image
     
-    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var textView: UITextView!
+    
+    var menu: SideMenuNavigationController? //CAN DO THIS HERE OR CAN CREATE THE NAV CONTROLLER
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textView.delegate = self
+        //TODO probably deprecating
+        //side menu
+        menu = SideMenuNavigationController(rootViewController: UIViewController())//i think this is right?
+        menu?.leftSide = true
+        
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+        //////////////////
+        
+        /* TEXTVIEW */
+        //use the uitextviewtoolbar swift class and add a done button to the keybaord
+        textView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+        //placeholder text
+        //textView.text = "Say something nice..."
+        textView.textColor = UIColor.lightGray
+        //add border, using brand gray
+        textView.layer.borderWidth = 1.0
+        textView.layer.borderColor = UIColor(red: 106/255, green: 106/255, blue: 106/255, alpha: 1).cgColor
+        //textView.text = user!["about"] as? String
+        
         
         //make the profile image circular
-        profileImage.layer.masksToBounds = true
-        profileImage.layer.cornerRadius = profileImage.bounds.width / 2
-        
-        
+//        profileImage.layer.masksToBounds = true
+//        profileImage.layer.cornerRadius = profileImage.bounds.width / 2
+//
+//
         //get user details from user global variable
         let username = user!["username"] as? String
         let ava = user!["ava"] as? String
+        let name = user!["fullname"] as? String
+        let about = user!["about"] as? String
+        
+        
+        textView.text = about
+        
+        
         
         
         //assign values(s) -- right now just username. not putting emails and shit
-        usernameLabel.text = username //fixme do we need this if the username is the nav title?
+        fullNameLabel.text = name //fixme do we need this if the username is the nav title?
         
         
         // get user profile picture
@@ -62,7 +95,22 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
 
         // Do any additional setup after loading the view.
     }
+    /*UI TEXT VIEW*/
+    //goes along with done button on toolbar we created
+    @objc func tapDone(sender: Any) {
+        self.view.endEditing(true)
+    }
+    //remove the placeholder when the user taps on the textview
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+  
     
+
+    //TODO edit this
     @IBAction func editClicked(_ sender: Any) {
         
         //select profile picture
@@ -197,7 +245,7 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
                             //pasrse json is the key we used for the user value
                             UserDefaults.standard.set(dictionary, forKey: "parseJSON")//save /////dictionary instead of parsejson.. think will work
                             user = UserDefaults.standard.value(forKey: "parseJSON") as? NSDictionary //assign to user variable
-
+                            //DO I DO THIS EACH TIME, OR SHOULD I JUST DO IT FOR AVA (looks like each time)
                             
                        }
                        catch {

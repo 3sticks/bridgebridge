@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import YPImagePicker
 class LandingPageMainViewController: UIViewController {
 
     //@IBOutlet weak var logInButton: UIButton!
