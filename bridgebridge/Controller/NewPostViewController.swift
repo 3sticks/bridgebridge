@@ -30,7 +30,8 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         textView.textColor = UIColor.lightGray
         //add border, using brand gray
         textView.layer.borderWidth = 1.0
-        textView.layer.borderColor = UIColor(red: 106/255, green: 106/255, blue: 106/255, alpha: 1).cgColor
+        textView.layer.borderColor = UIColor(red: 106/255, green: 106/255, blue: 106/255, alpha: 0.25).cgColor
+        
     }
     
     //goes along with done button on toolbar we created
@@ -106,6 +107,8 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
                             
                        
                         }.resume()
+
+       self.navigationController?.popViewController(animated: true)
     }
 
     //if they press done.... actually..... i wamt the placeholder gone, since they can post a pic with no text. yeah, remove this. but keep it just in case.
@@ -117,3 +120,4 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
 //    }
 
 }
+

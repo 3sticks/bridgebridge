@@ -20,36 +20,38 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var textView: UITextView!
     
     var menu: SideMenuNavigationController? //CAN DO THIS HERE OR CAN CREATE THE NAV CONTROLLER
-    
+    let username = user!["username"] as? String
+    let ava = user!["ava"] as? String
+    let name = user!["fullname"] as? String
+    let about = user!["about"] as? String
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
         //TODO probably deprecating
         //side menu
-        menu = SideMenuNavigationController(rootViewController: UIViewController())//i think this is right?
-        menu?.leftSide = true
-        
-        SideMenuManager.default.leftMenuNavigationController = menu
-        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+//        menu = SideMenuNavigationController(rootViewController: UIViewController())//i think this is right?
+//        menu?.leftSide = true
+//
+//        SideMenuManager.default.leftMenuNavigationController = menu
+//        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
         //////////////////
         
         /* TEXTVIEW */
         //use the uitextviewtoolbar swift class and add a done button to the keybaord
-        textView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+        //textView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         //placeholder text
         //textView.text = "Say something nice..."
-        textView.textColor = UIColor.lightGray
+        //textView.textColor = UIColor.lightGray
         //add border, using brand gray
         textView.layer.borderWidth = 1.0
-        textView.layer.borderColor = UIColor(red: 106/255, green: 106/255, blue: 106/255, alpha: 1).cgColor
-        //textView.text = user!["about"] as? String
-        
+        textView.layer.borderColor = UIColor(red: 106/255, green: 106/255, blue: 106/255, alpha: 0.25).cgColor
+        textView.backgroundColor = UIColor.clear
         
         //make the profile image circular
-//        profileImage.layer.masksToBounds = true
-//        profileImage.layer.cornerRadius = profileImage.bounds.width / 2
-//
+        profileImage.layer.masksToBounds = true
+        profileImage.layer.cornerRadius = profileImage.bounds.width / 2
+
 //
         //get user details from user global variable
         let username = user!["username"] as? String
@@ -57,6 +59,8 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
         let name = user!["fullname"] as? String
         let about = user!["about"] as? String
         
+        //dont want user to edit textview here
+        textView.isEditable = false
         
         textView.text = about
         
@@ -95,19 +99,43 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    //UPDATE ABOUT ME AND WHATEVER ELSE THE USER CHANGES
+    //view will appear works when pressing the back button, but thats stupid, because the back button is a cancel button.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        //AHHH, have to reload the user variable, since it changed. Duh! You dumb fuck. 
+        let about = user!["about"] as? String
+        textView.text = about
+    }
+    //But, the save button wasnt impacting view will apear, so i said fuck it and added view did appear, and it worked. best practice? i dont know. facebook can figure it out when they buy the app. 
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(true)
+            
+            //AHHH, have to reload the user variable, since it changed. Duh! You dumb fuck.
+            let about = user!["about"] as? String
+            textView.text = about
+            
+            
+         //Your code here will execute after viewDidLoad() or when you dismiss the child viewController
+
+    }
     /*UI TEXT VIEW*/
     //goes along with done button on toolbar we created
-    @objc func tapDone(sender: Any) {
-        self.view.endEditing(true)
-    }
+//    @objc func tapDone(sender: Any) {
+//        self.view.endEditing(true)
+//    }
     //remove the placeholder when the user taps on the textview
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
-    }
-  
+//    func textViewDidBeginEditing(_ textView: UITextView) {
+//        if textView.textColor == UIColor.lightGray {
+//            textView.text = nil
+//            textView.textColor = UIColor.black
+//        }
+//    }
+//
     
 
     //TODO edit this
@@ -121,6 +149,7 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
         self.present(picker, animated: true, completion: nil)
     }
     
+
     //to also allow camera one day
     //UIImagePickerController.SourceType.camera //https://stackoverflow.com/questions/54268856/upload-image-to-my-server-via-php-using-swift
     //https://www.codingexplorer.com/choosing-images-with-uiimagepickercontroller-in-swift/
@@ -322,3 +351,5 @@ extension URLRequest {
         print("HEADERS \n \(allHTTPHeaderFields)")
     }
 }
+
+
