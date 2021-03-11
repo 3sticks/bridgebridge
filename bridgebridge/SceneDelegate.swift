@@ -44,6 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //refer to main storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let landing = storyboard.instantiateViewController(withIdentifier: "loginNavCon") //INSTEAD OF logging out to the landing page VC, log out to the nav controller. this makes sure the views are then within the nav controller, and not popover segues. nav doesnt have a vc, but we gave it an id (loginNavCon)
+        //todo destroy user var
         window?.rootViewController = landing
         
     }

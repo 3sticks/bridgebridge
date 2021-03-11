@@ -18,13 +18,14 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var instrumentsLabel: UILabel!
     
     var menu: SideMenuNavigationController? //CAN DO THIS HERE OR CAN CREATE THE NAV CONTROLLER
-    let username = user!["username"] as? String
-    let ava = user!["ava"] as? String
-    let name = user!["fullname"] as? String
-    let about = user!["about"] as? String
-    
+//    let username = user!["username"] as? String
+//    let ava = user!["ava"] as? String
+//    let name = user!["fullname"] as? String
+//    let about = user!["about"] as? String
+//
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
@@ -44,7 +45,7 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
         //textView.text = "Say something nice..."
         //textView.textColor = UIColor.lightGray
         //add border, using brand gray
-        textView.layer.borderWidth = 1.0
+        textView.layer.borderWidth = 0.25
         textView.layer.borderColor = UIColor(red: 106/255, green: 106/255, blue: 106/255, alpha: 0.25).cgColor
         textView.backgroundColor = UIColor.clear
         
@@ -63,9 +64,8 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
         textView.isEditable = false
         
         textView.text = about
-        
-        
-        
+
+        //replacing occurences didnt work 
         
         //assign values(s) -- right now just username. not putting emails and shit
         fullNameLabel.text = name //fixme do we need this if the username is the nav title?
@@ -110,6 +110,7 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
         //AHHH, have to reload the user variable, since it changed. Duh! You dumb fuck. 
         let about = user!["about"] as? String
         textView.text = about
+        //will user name need to be here?
     }
     //But, the save button wasnt impacting view will apear, so i said fuck it and added view did appear, and it worked. best practice? i dont know. facebook can figure it out when they buy the app. 
     override func viewDidAppear(_ animated: Bool) {

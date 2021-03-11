@@ -6,6 +6,10 @@
 //  Copyright © 2021 Hugo Bucci III. All rights reserved.
 //
 // This creates a toolbar that is placed above the keyboard on a textview when called. Used for the post keyboard... going to add more things to it
+//https://www.swiftdevcenter.com/uitextview-dismiss-keyboard-swift/
+
+//maybe add pictures https://stackoverflow.com/questions/9926978/how-to-add-images-to-uitoolbar
+
 
 import UIKit
 

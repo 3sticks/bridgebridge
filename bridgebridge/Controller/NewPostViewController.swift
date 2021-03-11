@@ -14,16 +14,21 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var textView: UITextView!
     
+    @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var instrument: UITextField!
+    @IBOutlet weak var exper: UITextField!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
         
         //use the uitextviewtoolbar swift class and add a done button to the keybaord
-        textView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
+        textView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:))) //this is enabled by creating an extension to UITextView, in UITTEXTVIEWTOOLBAR.SWIFT
 
-        
-        //placeholder text
-       // textView.text = "Say something nice..."
+    
         //obviously want to pull in the text from user defaults here so the user can edit it
         let about = user!["about"] as? String
         textView.text = about
@@ -31,6 +36,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         //add border, using brand gray
         textView.layer.borderWidth = 1.0
         textView.layer.borderColor = UIColor(red: 106/255, green: 106/255, blue: 106/255, alpha: 0.25).cgColor
+        
         
     }
     
@@ -58,7 +64,7 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         
         request.httpMethod = "POST"
         
-        //add tje about and id to body
+        //add bio info and id to body
         let body = "about=\(textView.text!)&id=\(id!)"
         
         request.httpBody = body.data(using: .utf8)
