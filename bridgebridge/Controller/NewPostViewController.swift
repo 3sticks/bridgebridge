@@ -31,12 +31,14 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
     
         //obviously want to pull in the text from user defaults here so the user can edit it
         let about = user!["about"] as? String
+        let instrumentText = user!["instrument"] as? String
         textView.text = about
         textView.textColor = UIColor.lightGray
         //add border, using brand gray
         textView.layer.borderWidth = 1.0
         textView.layer.borderColor = UIColor(red: 106/255, green: 106/255, blue: 106/255, alpha: 0.25).cgColor
         
+        instrument.text = instrumentText
         
     }
     
@@ -64,9 +66,10 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         
         request.httpMethod = "POST"
         
+        print(instrument.text!)
         //add bio info and id to body
-        let body = "about=\(textView.text!)&id=\(id!)"
-        
+        let body = "about=\(textView.text!)&instrument=\(instrument.text!)&id=\(id!)"
+        print(body)
         request.httpBody = body.data(using: .utf8)
         
         

@@ -691,7 +691,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="255" id="OUj-bu-c5f"/>
                                 </constraints>
-                                <color key="textColor" name="BrandGrayBlack"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

@@ -59,17 +59,19 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
         let ava = user!["ava"] as? String
         let name = user!["fullname"] as? String
         let about = user!["about"] as? String
+        let instrumentText = user!["instrument"] as? String
         
         //dont want user to edit textview here
         textView.isEditable = false
         
-        textView.text = about
+
 
         //replacing occurences didnt work 
         
         //assign values(s) -- right now just username. not putting emails and shit
         fullNameLabel.text = name //fixme do we need this if the username is the nav title?
-        
+        textView.text = about
+        instrumentsLabel.text = instrumentText
         
         // get user profile picture
         if ava != "" {
@@ -101,6 +103,7 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
     }
     
     
+    //TODO figure out if you need both of these. seem redundant??
     
     //UPDATE ABOUT ME AND WHATEVER ELSE THE USER CHANGES
     //view will appear works when pressing the back button, but thats stupid, because the back button is a cancel button.
@@ -111,6 +114,8 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
         let about = user!["about"] as? String
         textView.text = about
         //will user name need to be here?
+        let instrumentText = user!["instrument"] as? String
+        instrumentsLabel.text = instrumentText
     }
     //But, the save button wasnt impacting view will apear, so i said fuck it and added view did appear, and it worked. best practice? i dont know. facebook can figure it out when they buy the app. 
     override func viewDidAppear(_ animated: Bool) {
@@ -119,7 +124,8 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
             //AHHH, have to reload the user variable, since it changed. Duh! You dumb fuck.
             let about = user!["about"] as? String
             textView.text = about
-            
+        let instrumentText = user!["instrument"] as? String
+        instrumentsLabel.text = instrumentText
             
          //Your code here will execute after viewDidLoad() or when you dismiss the child viewController
 
