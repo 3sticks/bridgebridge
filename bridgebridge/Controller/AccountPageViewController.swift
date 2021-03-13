@@ -60,6 +60,8 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
         let name = user!["fullname"] as? String
         let about = user!["about"] as? String
         let instrumentText = user!["instrument"] as? String
+        let experience = user!["experience"] as? String
+        
         
         //dont want user to edit textview here
         textView.isEditable = false
@@ -72,6 +74,7 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
         fullNameLabel.text = name //fixme do we need this if the username is the nav title?
         textView.text = about
         instrumentsLabel.text = instrumentText
+        
         
         // get user profile picture
         if ava != "" {
@@ -112,6 +115,8 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
         
         //AHHH, have to reload the user variable, since it changed. Duh! You dumb fuck. 
         let about = user!["about"] as? String
+        let name = user!["fullname"] as? String
+        fullNameLabel.text = name
         textView.text = about
         //will user name need to be here?
         let instrumentText = user!["instrument"] as? String
@@ -123,6 +128,8 @@ class AccountPageViewController: UIViewController, UINavigationControllerDelegat
             
             //AHHH, have to reload the user variable, since it changed. Duh! You dumb fuck.
             let about = user!["about"] as? String
+        let name = user!["fullname"] as? String
+        fullNameLabel.text = name
             textView.text = about
         let instrumentText = user!["instrument"] as? String
         instrumentsLabel.text = instrumentText
