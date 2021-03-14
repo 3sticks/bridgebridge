@@ -160,16 +160,25 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
                             // if path exists -> laod ava via path
                             if ava != ""{
                                 print(ava)
-                                let imgURL = URL(string: ava!)! // convert parth of str to url
-
-                                guard let imageData = try? Data(contentsOf: imgURL) else {
-                                    print(try? Data(contentsOf : imgURL))
-                                    print("There was an error!")
-                                    return
-                                }
-                                //let imageData = try? Data(contentsOf: url) // get data via url and assing to imageData
-                                let image = UIImage(data: imageData)! // convert data of image via data imageData to UIImage
+                                let url = URL(string: ava!)! // convert parth of str to url
+                                let imageData = try? Data(contentsOf: url) // get data via url and assing to imageData
+                                
+                                //AHA! I HAVE CONQUERED THE BEAST. future me: on 3/13, i was having major issues with imagedata coming back nil and crashing the app. it took me way too long to figure out why.
+                                //somehow, a profile image link was added to the database, but the file was not uploaded to the folder. a weird error, but definitely something to check for. to combat this in the future,
+                                //im putting in this little if function... if imagedate is nil, it means theres no profile picture in the directory, so pop in a placeholder instead of crashing everyones app. some crazy
+                                //shit might happen where all the profile pictures get destroyed, but you still want the app to run. i worked on this for 8 hours. i was cranky with sara and frank because of it. i am so mad.
+                                //BUT it is fixed.
+                                //for now.
+                                
+                                if imageData == nil{
+                                    
+                                    let image = UIImage(named: "wizzr.jpg")
+                                    self.avas.append(image!)
+                                    
+                                }else {
+                                let image = UIImage(data: imageData!)! // convert data of image via data imageData to UIImage
                                 self.avas.append(image)
+                                }
 
                             // else use placeholder for ava
                             } else {
