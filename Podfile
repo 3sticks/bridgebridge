@@ -9,6 +9,7 @@ target 'bridgebridge' do
  pod "Alamofire"
  pod "SideMenu"
  pod "YPImagePicker"
+ pod "SDWebImage"
 
 
 

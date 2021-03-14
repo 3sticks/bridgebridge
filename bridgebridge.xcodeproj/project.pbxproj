@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		1A0AC3E4E693518EAADDE919 /* Pods_bridgebridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF252DE54ED55DF66DD24B27 /* Pods_bridgebridge.framework */; };
 		9A3694ED25F009BD00A85F56 /* UITextViewToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3694EC25F009BD00A85F56 /* UITextViewToolBar.swift */; };
-		9A6C2C6625FD211B00685F69 /* TrainersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C2C6525FD211B00685F69 /* TrainersTableViewController.swift */; };
-		9A6C2C7125FD269000685F69 /* TrainersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C2C6F25FD269000685F69 /* TrainersCell.swift */; };
 		9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */; };
+		9AAD79E025FDB34900D46321 /* TrainersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD79DF25FDB34900D46321 /* TrainersVC.swift */; };
+		9AAD79E425FDB38900D46321 /* trainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD79E325FDB38900D46321 /* trainers.swift */; };
 		9AAE48C625EF2E57005EEA60 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE48C525EF2E57005EEA60 /* NewPostViewController.swift */; };
 		9AEEAED025E4986D00A1D75E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEAECF25E4986D00A1D75E /* AppDelegate.swift */; };
 		9AEEAED225E4986D00A1D75E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEAED125E4986D00A1D75E /* SceneDelegate.swift */; };
@@ -46,9 +46,9 @@
 /* Begin PBXFileReference section */
 		897F8E495305F56AB9A1938D /* Pods-bridgebridgeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bridgebridgeTests.debug.xcconfig"; path = "Target Support Files/Pods-bridgebridgeTests/Pods-bridgebridgeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A3694EC25F009BD00A85F56 /* UITextViewToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewToolBar.swift; sourceTree = "<group>"; };
-		9A6C2C6525FD211B00685F69 /* TrainersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainersTableViewController.swift; sourceTree = "<group>"; };
-		9A6C2C6F25FD269000685F69 /* TrainersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainersCell.swift; sourceTree = "<group>"; };
 		9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
+		9AAD79DF25FDB34900D46321 /* TrainersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainersVC.swift; sourceTree = "<group>"; };
+		9AAD79E325FDB38900D46321 /* trainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainers.swift; sourceTree = "<group>"; };
 		9AAE48C525EF2E57005EEA60 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		9AEEAECC25E4986D00A1D75E /* bridgebridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bridgebridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AEEAECF25E4986D00A1D75E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,8 +175,8 @@
 				9AEEAF1225E74F3B00A1D75E /* TabBarViewController.swift */,
 				9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */,
 				9AAE48C525EF2E57005EEA60 /* NewPostViewController.swift */,
-				9A6C2C6525FD211B00685F69 /* TrainersTableViewController.swift */,
-				9A6C2C6F25FD269000685F69 /* TrainersCell.swift */,
+				9AAD79DF25FDB34900D46321 /* TrainersVC.swift */,
+				9AAD79E325FDB38900D46321 /* trainers.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -370,20 +370,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */,
-				9A6C2C6625FD211B00685F69 /* TrainersTableViewController.swift in Sources */,
 				9AEEAF0E25E5EA1900A1D75E /* EmailResestPopViewController.swift in Sources */,
 				9A3694ED25F009BD00A85F56 /* UITextViewToolBar.swift in Sources */,
 				9AEEAF1125E7477B00A1D75E /* HomeNavigationViewController.swift in Sources */,
 				9AEEAF0825E498EB00A1D75E /* Post.swift in Sources */,
 				9AEEAF0625E498D000A1D75E /* MessageCell.swift in Sources */,
+				9AAD79E425FDB38900D46321 /* trainers.swift in Sources */,
 				9AEEAF1325E74F3B00A1D75E /* TabBarViewController.swift in Sources */,
 				9AAE48C625EF2E57005EEA60 /* NewPostViewController.swift in Sources */,
 				9AEEAEFC25E498C500A1D75E /* LandingPageMainViewController.swift in Sources */,
+				9AAD79E025FDB34900D46321 /* TrainersVC.swift in Sources */,
 				9AEEAEFD25E498C500A1D75E /* LogInViewController.swift in Sources */,
 				9AEEAEFF25E498C500A1D75E /* RegisterViewController.swift in Sources */,
 				9AEEAED025E4986D00A1D75E /* AppDelegate.swift in Sources */,
 				9AEEAED225E4986D00A1D75E /* SceneDelegate.swift in Sources */,
-				9A6C2C7125FD269000685F69 /* TrainersCell.swift in Sources */,
 				9AEEAEDA25E4986D00A1D75E /* bridgebridge.xcdatamodeld in Sources */,
 				9AEEAEFE25E498C500A1D75E /* ResetPWViewController.swift in Sources */,
 			);

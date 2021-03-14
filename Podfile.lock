@@ -1,16 +1,38 @@
 PODS:
   - Alamofire (5.4.1)
+  - PryntTrimmerView (4.0.2)
+  - SDWebImage (5.10.4):
+    - SDWebImage/Core (= 5.10.4)
+  - SDWebImage/Core (5.10.4)
+  - SideMenu (6.5.0)
+  - SteviaLayout (4.7.3)
+  - YPImagePicker (4.4.0):
+    - PryntTrimmerView (~> 4.0.2)
+    - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
   - Alamofire
+  - SDWebImage
+  - SideMenu
+  - YPImagePicker
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - PryntTrimmerView
+    - SDWebImage
+    - SideMenu
+    - SteviaLayout
+    - YPImagePicker
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
+  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  YPImagePicker: 15aed8bcaa4dad976e11b6114126d731a2f9f3c9
 
-PODFILE CHECKSUM: 0b202df0cb408807801b3b9fe74cc30d05ab4e12
+PODFILE CHECKSUM: 35c6d348afa33e73c172ba4fa9dc12a120c057c1
 
 COCOAPODS: 1.10.0
