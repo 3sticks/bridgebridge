@@ -21,17 +21,17 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.rowHeight = 100.0
+        self.tableView.rowHeight = 120.0
         //searchbar customization
         //dont worry about colors here, should follow global tint
         searchBurp.showsCancelButton = false //initially no cancel button
-        doSearch(word: "")
+        doSearch("")
     }
     
     //user starts typing
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //call search php request
-        doSearch(word: searchBurp.text!)
+        doSearch(searchBurp.text!)
     }
     
     //click in search bar
@@ -46,13 +46,13 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
         searchBurp.text = ""//empty out the search bar
 
         
-        
+        //i dont think i like this........
         users.removeAll(keepingCapacity: false)
-       // avas.removeAll(keepingCapacity: false)
+       avas.removeAll(keepingCapacity: false)
         
         tableView.reloadData()
         
-        doSearch(word: "") //show the whole party again
+        doSearch("") //show the whole party again
     }
 
 //    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -100,7 +100,7 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
     }
     
     //search/retrieve users
-    func doSearch(word : String) {
+    func doSearch(_ word : String) {
         //data to pass
         let word = searchBurp.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) //get rid of whitespace?? yes, because they are stored as % in sql
         let username = user!["username"] as! String
@@ -130,7 +130,8 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
                         
                         //cleanup
                         self.users.removeAll(keepingCapacity: false)
-                       // self.avas.removeAll(keepingCapacity: false)
+                        //this is needed so the rows dont stay the same... if row one at started has flowers, and you search, the person who moves to row one will have flowers 
+                        self.avas.removeAll(keepingCapacity: false)
                         self.tableView.reloadData()
                         
                         // assign json to new var parseJSON in guard/secured way
@@ -148,7 +149,6 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
                         print(parseUSERS)
                         //store users in array
                         self.users = parseUSERS as! [AnyObject]
-                        print(self.users.count)
                         
                         // for i=0; i < users.count; i++
                         for i in 0 ..< self.users.count {
@@ -158,8 +158,7 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
                             print(ava)
 
                             // if path exists -> laod ava via path
-                            if ava != ""{
-                                print(ava)
+                            if !ava!.isEmpty {
                                 let url = URL(string: ava!)! // convert parth of str to url
                                 let imageData = try? Data(contentsOf: url) // get data via url and assing to imageData
                                 
@@ -175,7 +174,7 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
                                     let image = UIImage(named: "wizzr.jpg")
                                     self.avas.append(image!)
                                     
-                                }else {
+                                } else {
                                 let image = UIImage(data: imageData!)! // convert data of image via data imageData to UIImage
                                 self.avas.append(image)
                                 }
@@ -220,51 +219,35 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
         
         
     }
-    
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //proceeding segue to trainer view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+       
+        //check if cell exists or if we pressed a cell
+        if let cell = sender as? UITableViewCell {
+            
+            // define index to later on pass exact guest user related info
+            let index = tableView.indexPath(for: cell)!.row
+            
+            // if segue is trainer which it is ...
+            if segue.identifier == "trainer" {
+                
+                // call trainerprofile to access trainerprofile
+                let TrainerProfile = segue.destination as! TrainerProfileViewController
+                
+                // assign assign trainer info to the trainer var in trainerVC
+                TrainerProfile.trainer = users[index] as! NSDictionary
+                
+                // new back button
+//                let backItem = UIBarButtonItem()
+//                backItem.title = ""
+//                navigationItem.backBarButtonItem = backItem
+                
+            }
+            
+        }
+        
     }
-    */
+
 
 }
