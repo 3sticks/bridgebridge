@@ -28,15 +28,27 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         //use the uitextviewtoolbar swift class and add a done button to the keybaord
         textView.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:))) //this is enabled by creating an extension to UITextView, in UITTEXTVIEWTOOLBAR.SWIFT
 
-    
+        
+        
         //obviously want to pull in the text from user defaults here so the user can edit it
         let about = user!["about"] as? String
         let instrumentText = user!["instrument"] as? String
         let name = user!["fullname"] as? String //user sets their full name at the beginning
         let experience = user!["experience"] as? String
         
+        if about! == "" {
+        
+            textView.text = "Tell the people about yourself. Use this space to highlight your strengths as a trainer, and why the users should train with you."
+            
+        } else {
+            
+            
+            textView.text = about
+            
+        }
+        
         //TEXTVIEW
-        textView.text = about
+
         textView.textColor = UIColor.lightGray
         //add border, using brand gray
         textView.layer.borderWidth = 1.0
@@ -54,13 +66,16 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         self.view.endEditing(true)
     }
 
-    //remove the placeholder when the user taps on the textview
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        if textView.textColor == UIColor.lightGray {
-//            textView.text = nil
-//            textView.textColor = UIColor.black
-//        }
-//    }
+    //only clear when typing if the placeholder is there 
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Tell the people about yourself. Use this space to highlight your strengths as a trainer, and why the users should train with you." {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+
+        
+    }
+
 
     @IBAction func savePressed(_ sender: Any) {
         

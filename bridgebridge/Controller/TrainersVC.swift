@@ -106,7 +106,7 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
         let username = user!["username"] as! String
         
         
-        let url = URL(string: "https://mybridgeapp.com/trainers.php")!  // url path to trainers.php file
+        let url = URL(string: "https://mybridgeapp.com/deep/dive/do0d/trainers.php")!  // url path to trainers.php file
         
         var request = URLRequest(url: url)
         

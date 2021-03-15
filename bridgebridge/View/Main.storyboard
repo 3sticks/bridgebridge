@@ -527,7 +527,9 @@
                             <outlet property="delegate" destination="P3f-gN-jOd" id="PWD-wg-rC6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Trainers" id="Ytu-2c-B4a"/>
+                    <navigationItem key="navigationItem" title="Trainers" id="Ytu-2c-B4a">
+                        <barButtonItem key="rightBarButtonItem" title="Options" id="lqp-4d-1iz"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBurp" destination="6Tb-2Z-GS4" id="NH5-2t-UPo"/>
                     </connections>
