@@ -10,7 +10,7 @@ target 'bridgebridge' do
  pod "SideMenu"
  pod "YPImagePicker"
  pod "SDWebImage"
-
+ pod 'Stripe'
 
 
   target 'bridgebridgeTests' do
