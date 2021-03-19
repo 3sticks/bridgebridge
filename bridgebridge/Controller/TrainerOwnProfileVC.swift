@@ -11,8 +11,9 @@ import SideMenu
 import Alamofire
 import YPImagePicker
 
-//TODO MAKE SURE THE OUTLETS AND ACTIONS ARE CORRECT 
-
+//TODO MAKE SURE THE OUTLETS AND ACTIONS ARE CORRECT
+//TODO add link fromt about me
+//https://stackoverflow.com/questions/39238366/uitextview-with-hyperlink-text
 
 class TrainerOwnProfileVC:  UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate {//through the navigation controller, we open the picker controller to select an image
     
@@ -45,7 +46,7 @@ class TrainerOwnProfileVC:  UIViewController, UINavigationControllerDelegate, UI
         //placeholder text
         //textView.text = "Say something nice..."
         //textView.textColor = UIColor.lightGray
-        //add border, using brand gray
+        //add border, using brand grayb.0.0jjnj0..
         textView.layer.borderWidth = 0.25
         textView.layer.borderColor = UIColor(red: 106/255, green: 106/255, blue: 106/255, alpha: 0.25).cgColor
         textView.backgroundColor = UIColor.clear
@@ -336,25 +337,8 @@ class TrainerOwnProfileVC:  UIViewController, UINavigationControllerDelegate, UI
 
     }
     
-    
-    
-} {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+    
+    
+    
+

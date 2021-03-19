@@ -10,7 +10,7 @@
 
 import UIKit
 import YPImagePicker
-class NewPostViewController: UIViewController, UITextViewDelegate {
+class UserEditProfileVC: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var textView: UITextView!
     

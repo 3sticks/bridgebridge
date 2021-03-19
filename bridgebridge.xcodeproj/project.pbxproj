@@ -13,10 +13,11 @@
 		9A7A179926004FA8003BE62D /* ConnectOnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A179826004FA8003BE62D /* ConnectOnboardViewController.swift */; };
 		9A7A17A426041FA7003BE62D /* TrainerRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A17A326041FA7003BE62D /* TrainerRegisterVC.swift */; };
 		9A7A17A8260441A1003BE62D /* TrainerOwnProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A17A7260441A1003BE62D /* TrainerOwnProfileVC.swift */; };
+		9A7A17B426053F38003BE62D /* TrainerEditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A17B326053F38003BE62D /* TrainerEditProfileVC.swift */; };
 		9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */; };
 		9AAD79E025FDB34900D46321 /* TrainersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD79DF25FDB34900D46321 /* TrainersVC.swift */; };
 		9AAD79E425FDB38900D46321 /* trainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD79E325FDB38900D46321 /* trainers.swift */; };
-		9AAE48C625EF2E57005EEA60 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE48C525EF2E57005EEA60 /* NewPostViewController.swift */; };
+		9AAE48C625EF2E57005EEA60 /* UserEditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE48C525EF2E57005EEA60 /* UserEditProfileVC.swift */; };
 		9AEEAED025E4986D00A1D75E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEAECF25E4986D00A1D75E /* AppDelegate.swift */; };
 		9AEEAED225E4986D00A1D75E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEAED125E4986D00A1D75E /* SceneDelegate.swift */; };
 		9AEEAEDA25E4986D00A1D75E /* bridgebridge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AEEAED825E4986D00A1D75E /* bridgebridge.xcdatamodeld */; };
@@ -54,10 +55,11 @@
 		9A7A179826004FA8003BE62D /* ConnectOnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectOnboardViewController.swift; sourceTree = "<group>"; };
 		9A7A17A326041FA7003BE62D /* TrainerRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerRegisterVC.swift; sourceTree = "<group>"; };
 		9A7A17A7260441A1003BE62D /* TrainerOwnProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerOwnProfileVC.swift; sourceTree = "<group>"; };
+		9A7A17B326053F38003BE62D /* TrainerEditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerEditProfileVC.swift; sourceTree = "<group>"; };
 		9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
 		9AAD79DF25FDB34900D46321 /* TrainersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainersVC.swift; sourceTree = "<group>"; };
 		9AAD79E325FDB38900D46321 /* trainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainers.swift; sourceTree = "<group>"; };
-		9AAE48C525EF2E57005EEA60 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		9AAE48C525EF2E57005EEA60 /* UserEditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditProfileVC.swift; sourceTree = "<group>"; };
 		9AEEAECC25E4986D00A1D75E /* bridgebridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bridgebridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AEEAECF25E4986D00A1D75E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AEEAED125E4986D00A1D75E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9A7A17AC26053EC5003BE62D /* Trainer Flow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Trainer Flow";
+			sourceTree = "<group>";
+		};
 		9AEEAEC325E4986D00A1D75E = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +183,9 @@
 		9AEEAEF425E4987400A1D75E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9A7A17A326041FA7003BE62D /* TrainerRegisterVC.swift */,
+				9A7A17A7260441A1003BE62D /* TrainerOwnProfileVC.swift */,
+				9A7A17B326053F38003BE62D /* TrainerEditProfileVC.swift */,
 				9AEEAEF725E498C500A1D75E /* LandingPageMainViewController.swift */,
 				9AEEAEF825E498C500A1D75E /* LogInViewController.swift */,
 				9AEEAEFA25E498C500A1D75E /* RegisterViewController.swift */,
@@ -182,13 +194,12 @@
 				9AEEAF1025E7477B00A1D75E /* HomeNavigationViewController.swift */,
 				9AEEAF1225E74F3B00A1D75E /* TabBarViewController.swift */,
 				9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */,
-				9AAE48C525EF2E57005EEA60 /* NewPostViewController.swift */,
+				9AAE48C525EF2E57005EEA60 /* UserEditProfileVC.swift */,
 				9AAD79DF25FDB34900D46321 /* TrainersVC.swift */,
 				9AAD79E325FDB38900D46321 /* trainers.swift */,
 				9A7A178725FE6974003BE62D /* TrainerProfileViewController.swift */,
 				9A7A179826004FA8003BE62D /* ConnectOnboardViewController.swift */,
-				9A7A17A326041FA7003BE62D /* TrainerRegisterVC.swift */,
-				9A7A17A7260441A1003BE62D /* TrainerOwnProfileVC.swift */,
+				9A7A17AC26053EC5003BE62D /* Trainer Flow */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -383,6 +394,7 @@
 			files = (
 				9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */,
 				9A7A17A8260441A1003BE62D /* TrainerOwnProfileVC.swift in Sources */,
+				9A7A17B426053F38003BE62D /* TrainerEditProfileVC.swift in Sources */,
 				9AEEAF0E25E5EA1900A1D75E /* EmailResestPopViewController.swift in Sources */,
 				9A3694ED25F009BD00A85F56 /* UITextViewToolBar.swift in Sources */,
 				9AEEAF1125E7477B00A1D75E /* HomeNavigationViewController.swift in Sources */,
@@ -392,7 +404,7 @@
 				9A7A178825FE6974003BE62D /* TrainerProfileViewController.swift in Sources */,
 				9AAD79E425FDB38900D46321 /* trainers.swift in Sources */,
 				9AEEAF1325E74F3B00A1D75E /* TabBarViewController.swift in Sources */,
-				9AAE48C625EF2E57005EEA60 /* NewPostViewController.swift in Sources */,
+				9AAE48C625EF2E57005EEA60 /* UserEditProfileVC.swift in Sources */,
 				9A7A179926004FA8003BE62D /* ConnectOnboardViewController.swift in Sources */,
 				9AEEAEFC25E498C500A1D75E /* LandingPageMainViewController.swift in Sources */,
 				9AAD79E025FDB34900D46321 /* TrainersVC.swift in Sources */,

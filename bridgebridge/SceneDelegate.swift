@@ -86,13 +86,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let id = user!["id"] as? String
 
             if id != nil {
-                login()
+                
+                let trainer = user!["istrainer"] as? String
+                 //dont check for nil, since 0's are nil
+                    if trainer == "1" {
+                        
+                        trainerLogin()
+                        
+                    } else { //not a trainer
+                        
+                        login()
+                        
+                    }
+    
+                }
 
                 }
 
         }
 
-    }
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
