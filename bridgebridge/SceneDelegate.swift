@@ -40,6 +40,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = tabBar
     }
     
+    func trainerLogin(){
+        
+        //refer to main storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        //store tabbar object from main.storyboard in tabbar variable
+        let tabBar2 = storyboard.instantiateViewController(withIdentifier: "trainerHomeID") //homepage id is the storyboard ID of the main tab bar VC, this is the landing page after logging in.
+        
+        //present tabbar that is stored in tabbar var
+        window?.rootViewController = tabBar2
+    }
+    
+    
+    
+    
     func logout(){
         //refer to main storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Stripe
 
 
 //global variable named appDelegate so we can call it from any class/file.swift
@@ -22,10 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        //login()
+        StripeAPI.defaultPublishableKey = "pk_test_51IVQemLDOGUrLhOmjSQLWVwlCiKk9WKUMfTjBYBoNgqC2Q3xwfGHy1sSFD10SkkbQNRWKVACYK5QYIBYdKE450Mv00CUHT2i6E"
+        // do any other necessary launch configuration
         return true
     }
     

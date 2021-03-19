@@ -10,6 +10,9 @@
 		1A0AC3E4E693518EAADDE919 /* Pods_bridgebridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF252DE54ED55DF66DD24B27 /* Pods_bridgebridge.framework */; };
 		9A3694ED25F009BD00A85F56 /* UITextViewToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3694EC25F009BD00A85F56 /* UITextViewToolBar.swift */; };
 		9A7A178825FE6974003BE62D /* TrainerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A178725FE6974003BE62D /* TrainerProfileViewController.swift */; };
+		9A7A179926004FA8003BE62D /* ConnectOnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A179826004FA8003BE62D /* ConnectOnboardViewController.swift */; };
+		9A7A17A426041FA7003BE62D /* TrainerRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A17A326041FA7003BE62D /* TrainerRegisterVC.swift */; };
+		9A7A17A8260441A1003BE62D /* TrainerOwnProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A17A7260441A1003BE62D /* TrainerOwnProfileVC.swift */; };
 		9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */; };
 		9AAD79E025FDB34900D46321 /* TrainersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD79DF25FDB34900D46321 /* TrainersVC.swift */; };
 		9AAD79E425FDB38900D46321 /* trainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD79E325FDB38900D46321 /* trainers.swift */; };
@@ -48,6 +51,9 @@
 		897F8E495305F56AB9A1938D /* Pods-bridgebridgeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bridgebridgeTests.debug.xcconfig"; path = "Target Support Files/Pods-bridgebridgeTests/Pods-bridgebridgeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A3694EC25F009BD00A85F56 /* UITextViewToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewToolBar.swift; sourceTree = "<group>"; };
 		9A7A178725FE6974003BE62D /* TrainerProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerProfileViewController.swift; sourceTree = "<group>"; };
+		9A7A179826004FA8003BE62D /* ConnectOnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectOnboardViewController.swift; sourceTree = "<group>"; };
+		9A7A17A326041FA7003BE62D /* TrainerRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerRegisterVC.swift; sourceTree = "<group>"; };
+		9A7A17A7260441A1003BE62D /* TrainerOwnProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerOwnProfileVC.swift; sourceTree = "<group>"; };
 		9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
 		9AAD79DF25FDB34900D46321 /* TrainersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainersVC.swift; sourceTree = "<group>"; };
 		9AAD79E325FDB38900D46321 /* trainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainers.swift; sourceTree = "<group>"; };
@@ -180,6 +186,9 @@
 				9AAD79DF25FDB34900D46321 /* TrainersVC.swift */,
 				9AAD79E325FDB38900D46321 /* trainers.swift */,
 				9A7A178725FE6974003BE62D /* TrainerProfileViewController.swift */,
+				9A7A179826004FA8003BE62D /* ConnectOnboardViewController.swift */,
+				9A7A17A326041FA7003BE62D /* TrainerRegisterVC.swift */,
+				9A7A17A7260441A1003BE62D /* TrainerOwnProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -373,15 +382,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */,
+				9A7A17A8260441A1003BE62D /* TrainerOwnProfileVC.swift in Sources */,
 				9AEEAF0E25E5EA1900A1D75E /* EmailResestPopViewController.swift in Sources */,
 				9A3694ED25F009BD00A85F56 /* UITextViewToolBar.swift in Sources */,
 				9AEEAF1125E7477B00A1D75E /* HomeNavigationViewController.swift in Sources */,
 				9AEEAF0825E498EB00A1D75E /* Post.swift in Sources */,
+				9A7A17A426041FA7003BE62D /* TrainerRegisterVC.swift in Sources */,
 				9AEEAF0625E498D000A1D75E /* MessageCell.swift in Sources */,
 				9A7A178825FE6974003BE62D /* TrainerProfileViewController.swift in Sources */,
 				9AAD79E425FDB38900D46321 /* trainers.swift in Sources */,
 				9AEEAF1325E74F3B00A1D75E /* TabBarViewController.swift in Sources */,
 				9AAE48C625EF2E57005EEA60 /* NewPostViewController.swift in Sources */,
+				9A7A179926004FA8003BE62D /* ConnectOnboardViewController.swift in Sources */,
 				9AEEAEFC25E498C500A1D75E /* LandingPageMainViewController.swift in Sources */,
 				9AAD79E025FDB34900D46321 /* TrainersVC.swift in Sources */,
 				9AEEAEFD25E498C500A1D75E /* LogInViewController.swift in Sources */,

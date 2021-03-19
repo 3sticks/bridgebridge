@@ -1,6 +1,4 @@
-//
-//  test.swift
-//  bridgebridge
+//trainer cell
 //
 //  Created by Hugo Bucci III on 3/13/21.
 //  Copyright © 2021 Hugo Bucci III. All rights reserved.

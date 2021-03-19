@@ -124,11 +124,25 @@ class LogInViewController: UIViewController {
                                         UserDefaults.standard.set(parseJSON, forKey: "parseJSON")//save
                                         user = UserDefaults.standard.value(forKey: "parseJSON") as? NSDictionary //assign to user variable
                                         //THIS SETS USER FOR THIS DEVICE UNTIL LOGOIT
+                                        
+                                        //check whether user is a trainer or not (user parsjson or user variable? lets use json)
+                                        if parseJSON["istrainer"] as? String == "1" {  //its stored as a string, so need to call it as string (int didnt work)
+                                            // go to tabbar / home page
+                                                    DispatchQueue.main.async(execute: {
+                                                      sceneDelegate?.trainerLogin()
+                                                    })
+                                               
+                                            
+                                        } else { //not trainer
+                                            
+                                            // go to tabbar / home page
+                                                    DispatchQueue.main.async(execute: {
+                                                      sceneDelegate?.login()
+                                                    })
+                                            
+                                        }
                 
-                                      // go to tabbar / home page
-                                              DispatchQueue.main.async(execute: { //todo what the hell is this
-                                                sceneDelegate?.login()
-                                              })
+
                                          
                                         
                                         //TODO i think i need to add a dispatch main queue thing?? iS THIS NECESSARY FIXME
