@@ -614,7 +614,7 @@
         <scene sceneID="gnv-YC-5Kk">
             <objects>
                 <navigationController id="lBa-3z-0TT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="weT-Bc-LFs"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="live" id="weT-Bc-LFs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zat-Ih-4sM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1056,7 +1056,7 @@
         <scene sceneID="Yb7-mc-vhr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="acu-cv-ajW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="vyI-zZ-xGy"/>
+                    <tabBarItem key="tabBarItem" title="Item 1" image="home" id="vyI-zZ-xGy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XUy-cf-qn7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1312,7 +1312,7 @@
         <scene sceneID="unK-Ic-iRq">
             <objects>
                 <viewController storyboardIdentifier="TrainerEditProfileViewController" id="Ti3-xo-ern" customClass="TrainerEditProfileVC" customModule="bridgebridge" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bwo-SW-kBL">
+                    <view key="view" contentMode="scaleToFill" id="bwo-SW-kBL" customClass="Trs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1458,6 +1458,7 @@
     <resources>
         <image name="download" width="225" height="225"/>
         <image name="home" width="16" height="22"/>
+        <image name="live" width="24" height="21"/>
         <image name="logo" width="640" height="394.66665649414062"/>
         <image name="profile" width="21" height="24"/>
         <image name="wizzy" width="546" height="1000"/>

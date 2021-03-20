@@ -12,6 +12,8 @@ import UIKit
 
 class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
     
+    let placeHolderText = "Tell the people about yourself. Use this space to highlight your strengths as a trainer, and why the users should train with you."
+    
     @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var nameLabel: UITextField!
@@ -36,6 +38,7 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
         let instrumentText = user!["instrument"] as? String
         let name = user!["fullname"] as? String //user sets their full name at the beginning
         let experience = user!["experience"] as? String
+        let linky = user!["*"]
         
         if about! == "" {
         
@@ -69,7 +72,7 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
 
     //only clear when typing if the placeholder is there
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Tell the people about yourself. Use this space to highlight your strengths as a trainer, and why the users should train with you." {
+        if textView.text == placeHolderText {
             textView.text = nil
             textView.textColor = UIColor.black
         }
@@ -80,9 +83,13 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
 
     @IBAction func savePressed(_ sender: Any) {
         
-        if linkBox != nil { //if the link is not empty, make sure it is a link
+        if linkBox != nil { //if the link is not empty, make sure it is a link....how?
             //https://stackoverflow.com/questions/28079123/how-to-check-validity-of-url-in-swift/49072718
             
+        }
+        
+        if textView.text == placeHolderText {
+            textView.text = ""
         }
         
         //get the user ID

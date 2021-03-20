@@ -128,13 +128,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9A7A17AC26053EC5003BE62D /* Trainer Flow */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Trainer Flow";
-			sourceTree = "<group>";
-		};
 		9AEEAEC325E4986D00A1D75E = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +192,6 @@
 				9AAD79E325FDB38900D46321 /* trainers.swift */,
 				9A7A178725FE6974003BE62D /* TrainerProfileViewController.swift */,
 				9A7A179826004FA8003BE62D /* ConnectOnboardViewController.swift */,
-				9A7A17AC26053EC5003BE62D /* Trainer Flow */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
