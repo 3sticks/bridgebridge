@@ -45,7 +45,7 @@ class LogInViewController: UIViewController {
     //so, when the user starts editing the text field, we change the color back to gray from red if they previously had an incorrect username
     @IBAction func usernameChanged(_ sender: Any) {
         self.userNameTextField.layer.borderColor = UIColor.gray.cgColor
-        self.userNameTextField.layer.borderWidth = 1.0
+        self.userNameTextField.layer.borderWidth = 0.0 //these needs to be 0 to go back to normal
         
         //remove error label
         usernameIncorrectLabel.isHidden = true
@@ -57,7 +57,7 @@ class LogInViewController: UIViewController {
     
     @IBAction func passwordChanged(_ sender: Any) {
         self.passwordTextField.layer.borderColor = UIColor.gray.cgColor
-        self.passwordTextField.layer.borderWidth = 1.0
+        self.passwordTextField.layer.borderWidth = 0.0 //these needs to be 0 to go back to normal
         //remove error label
         passwordIncorrectLabel.isHidden = true
         

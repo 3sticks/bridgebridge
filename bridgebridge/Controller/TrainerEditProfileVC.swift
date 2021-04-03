@@ -13,13 +13,15 @@ import UIKit
 class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
     
     let placeHolderText = "Tell the people about yourself. Use this space to highlight your strengths as a trainer, and why the users should train with you."
-    
+    var linkTextHolder = "" //global var for link text
+    let standardLinkLabelText = "Link (website, youtube...)"
     @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var instrument: UITextField!
     @IBOutlet weak var exper: UITextField!
     @IBOutlet weak var linkBox: UITextField!
+    @IBOutlet var linkLabel: UILabel!
     
     
     
@@ -38,7 +40,7 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
         let instrumentText = user!["instrument"] as? String
         let name = user!["fullname"] as? String //user sets their full name at the beginning
         let experience = user!["experience"] as? String
-        let linky = user!["*"]
+        //let linky = user!["*"]
         
         if about! == "" {
         
@@ -80,18 +82,54 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
         
     }
 
-
-    @IBAction func savePressed(_ sender: Any) {
+    
+    //chcek that the user stopped editing the link box
+    @IBAction func stopEditingLInk(_ sender: Any) {
         
-        if linkBox != nil { //if the link is not empty, make sure it is a link....how?
-            //https://stackoverflow.com/questions/28079123/how-to-check-validity-of-url-in-swift/49072718
+        if linkBox.text != "" { //if the link is not empty, confirm it is a link
+            
+            if (linkBox.text!.isValidURL) { //if link is not a real link
+                
+                linkTextHolder = linkBox.text! //can use ! here because were only checking it if its not nil. im sure a guard would work better
+                
+            } else { //not a real link
+                
+                linkTextHolder = "" //keep linkTextHolder blank
+                
+                //make box red 
+                linkBox.layer.borderColor = UIColor.red.cgColor
+                linkBox.layer.borderWidth = 1.0
+                linkBox.shake() //shake extension
+                
+                //let them know by changing the label text
+                linkLabel.text = "Invalid link will not be saved"
+                linkLabel.textColor = UIColor.red
+                
+                //need a begin editing to return it back to normal....
+                
+            }
+            print(linkTextHolder)
+            
             
         }
+
+    }
+    @IBAction func startEditingLink(_ sender: Any) { //when they start editing the link, change the shit back
+        linkLabel.text = standardLinkLabelText
+        linkLabel.textColor = UIColor.black
+        linkBox.layer.borderWidth = 0.0 //need to go back to zero
+        self.linkBox.layer.borderColor = UIColor.lightGray.cgColor    }
+    
+    @IBAction func savePressed(_ sender: Any) {
+        
         
         if textView.text == placeHolderText {
             textView.text = ""
         }
         
+        //check editing 
+        
+
         //get the user ID
         let id = user!["id"] as? String
         //COMMENTS FOR ALL OF THIS ARE ON THE REGISTER SCREEN IF YOU FORGET
@@ -162,5 +200,20 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
 //            textView.textColor = UIColor.lightGray
 //        }
 //    }
+
+}
+
+//url validatory
+//https://stackoverflow.com/questions/28079123/how-to-check-validity-of-url-in-swift
+extension String {
+    var isValidURL: Bool {
+        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+        if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count)) {
+            // it is a link, if the match covers the whole string
+            return match.range.length == self.utf16.count
+        } else {
+            return false
+        }
+    }
 
 }

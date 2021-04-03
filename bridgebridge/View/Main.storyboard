@@ -947,7 +947,7 @@
             </objects>
             <point key="canvasLocation" x="2346" y="-190"/>
         </scene>
-        <!--*username*-->
+        <!--Trainer Profile View Controller-->
         <scene sceneID="GeA-Kz-Bgf">
             <objects>
                 <viewController id="tpx-is-QqM" customClass="TrainerProfileViewController" customModule="bridgebridge" customModuleProvider="target" sceneMemberID="viewController">
@@ -1038,7 +1038,8 @@
                             <constraint firstAttribute="trailing" secondItem="ZAG-R5-rlU" secondAttribute="trailing" id="rg4-Mk-XEg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="*username*" id="zJi-Ar-fPg">
+                    <navigationItem key="navigationItem" id="zJi-Ar-fPg">
+                        <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="d1J-DU-Ixp"/>
                     </navigationItem>
                     <connections>
@@ -1050,7 +1051,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6F-GO-7aM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4724.6376811594209" y="-190.17857142857142"/>
+            <point key="canvasLocation" x="4657" y="-208"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="Yb7-mc-vhr">
@@ -1383,13 +1384,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="example.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0hW-wd-61K">
-                                <rect key="frame" x="20" y="342" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="example.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0hW-wd-61K">
+                                <rect key="frame" x="20" y="341" width="374" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="jYo-O7-zAc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="startEditingLink:" destination="Ti3-xo-ern" eventType="editingDidBegin" id="L3A-vq-ncz"/>
+                                    <action selector="stopEditingLInk:" destination="Ti3-xo-ern" eventType="editingDidEnd" id="sTU-33-NX1"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link (website, youtube...)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvh-xr-anP">
                                 <rect key="frame" x="20" y="324" width="133" height="14"/>
@@ -1445,6 +1450,7 @@
                         <outlet property="exper" destination="bPd-RO-3we" id="aCC-4U-NXn"/>
                         <outlet property="instrument" destination="kWy-02-dY1" id="Nnl-f3-gR3"/>
                         <outlet property="linkBox" destination="0hW-wd-61K" id="jkT-Pw-P7m"/>
+                        <outlet property="linkLabel" destination="rvh-xr-anP" id="yzq-Pc-J0W"/>
                         <outlet property="nameLabel" destination="kQt-lZ-spA" id="bwn-TV-ove"/>
                         <outlet property="textView" destination="Hro-20-lFo" id="rQP-d8-W4L"/>
                     </connections>

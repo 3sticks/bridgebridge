@@ -117,7 +117,8 @@ class UserEditProfileVC: UIViewController, UITextViewDelegate {
                         if about != nil {
 
                             // save user information we received from our host
-                             UserDefaults.standard.set(parseJSON, forKey: "parseJSON")//save
+                             UserDefaults.standard.set(parseJSON, forKey: "parseJSON")//save //TODO learn user defaults
+                            
                              user = UserDefaults.standard.value(forKey: "parseJSON") as? NSDictionary //assign to user variable
                             
                             print(parseJSON)
