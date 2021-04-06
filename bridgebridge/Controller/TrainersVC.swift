@@ -8,6 +8,7 @@
 
 import UIKit
 
+//TODO add in the link 
 class TrainersVC: UITableViewController, UISearchBarDelegate {
 
     @IBOutlet weak var searchBurp: UISearchBar!
@@ -235,7 +236,7 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
                 // call trainerprofile to access trainerprofile
                 let TrainerProfile = segue.destination as! TrainerProfileViewController
                 
-                // assign assign trainer info to the trainer var in trainerVC
+                //  assign trainer info to the trainer var in trainerVC
                 TrainerProfile.trainer = users[index] as! NSDictionary
                 
                 // new back button

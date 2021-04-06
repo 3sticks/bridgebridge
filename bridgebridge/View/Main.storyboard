@@ -1216,19 +1216,8 @@
                                             <action selector="editClicked:" destination="OuM-yI-uW7" eventType="touchUpInside" id="7Iy-WD-Na1"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iwX-rm-gxK">
-                                        <rect key="frame" x="20" y="360" width="374" height="255"/>
-                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="255" id="1Io-qc-UrS"/>
-                                            <constraint firstAttribute="width" constant="374" id="iH5-vD-SuY"/>
-                                        </constraints>
-                                        <color key="textColor" name="BrandGrayBlack"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                                    </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Guitar, Piano, Ukele" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYc-jU-dPs">
-                                        <rect key="frame" x="19.999999999999993" y="311" width="126.33333333333331" height="17"/>
+                                        <rect key="frame" x="19.999999999999993" y="314" width="126.33333333333331" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="BrandGrayBlack"/>
                                         <nil key="highlightedColor"/>
@@ -1241,28 +1230,54 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Me:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdS-hB-CWy">
-                                        <rect key="frame" x="20" y="338" width="54" height="14"/>
+                                        <rect key="frame" x="20" y="386" width="54" height="14"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" name="BrandGrayBlack"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intrument(s):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qy4-nM-j1m">
-                                        <rect key="frame" x="20" y="289.66666666666669" width="68.666666666666671" height="13.333333333333314"/>
+                                        <rect key="frame" x="20" y="292.66666666666669" width="68.666666666666671" height="13.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" name="BrandGrayBlack"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="www.mybridgeapp.com/trainerhasnolink" translatesAutoresizingMaskIntoConstraints="NO" id="oQ4-2u-dU5">
+                                        <rect key="frame" x="15" y="341" width="379" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="tintColor" systemColor="linkColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="9Qd-uK-TNj"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="linkColor"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="url"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iwX-rm-gxK">
+                                        <rect key="frame" x="20" y="408" width="374" height="255"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="255" id="1Io-qc-UrS"/>
+                                            <constraint firstAttribute="width" constant="374" id="iH5-vD-SuY"/>
+                                        </constraints>
+                                        <color key="textColor" name="BrandGrayBlack"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                    </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="iwX-rm-gxK" firstAttribute="top" secondItem="3Ar-16-Ceu" secondAttribute="bottom" constant="120" id="5Jv-a2-x5b"/>
+                                    <constraint firstItem="iwX-rm-gxK" firstAttribute="top" secondItem="ZY6-O7-ZgW" secondAttribute="bottom" constant="129" id="7jY-tf-Xwr"/>
                                     <constraint firstAttribute="bottom" secondItem="iwX-rm-gxK" secondAttribute="bottom" constant="312" id="Hex-7O-nvG"/>
+                                    <constraint firstItem="oQ4-2u-dU5" firstAttribute="top" secondItem="EYc-jU-dPs" secondAttribute="bottom" constant="10" id="Jgk-ca-h05"/>
+                                    <constraint firstItem="paE-cd-wt4" firstAttribute="trailing" secondItem="oQ4-2u-dU5" secondAttribute="trailing" constant="20" id="NMf-Ws-Cu4"/>
                                     <constraint firstItem="iwX-rm-gxK" firstAttribute="top" secondItem="zdS-hB-CWy" secondAttribute="bottom" constant="8" symbolic="YES" id="RKu-2v-F5o"/>
                                     <constraint firstItem="EYc-jU-dPs" firstAttribute="top" secondItem="qy4-nM-j1m" secondAttribute="bottom" constant="8" id="UOm-13-CjI"/>
                                     <constraint firstItem="3Ar-16-Ceu" firstAttribute="top" secondItem="FFp-9d-GzB" secondAttribute="top" constant="20" id="V31-28-gqq"/>
                                     <constraint firstItem="ZY6-O7-ZgW" firstAttribute="top" secondItem="3Ar-16-Ceu" secondAttribute="bottom" constant="18" id="VhV-3i-dlE"/>
                                     <constraint firstItem="3Ar-16-Ceu" firstAttribute="leading" secondItem="m3L-vz-TIx" secondAttribute="trailing" constant="19" id="VmC-F6-dhL"/>
+                                    <constraint firstItem="zdS-hB-CWy" firstAttribute="top" secondItem="oQ4-2u-dU5" secondAttribute="bottom" constant="15" id="YjS-19-jkF"/>
                                     <constraint firstItem="EYc-jU-dPs" firstAttribute="leading" secondItem="paE-cd-wt4" secondAttribute="leading" constant="20" id="Zjk-IG-OUn"/>
-                                    <constraint firstItem="zdS-hB-CWy" firstAttribute="top" secondItem="EYc-jU-dPs" secondAttribute="bottom" constant="10" id="e0x-jt-dpU"/>
+                                    <constraint firstItem="oQ4-2u-dU5" firstAttribute="leading" secondItem="paE-cd-wt4" secondAttribute="leading" constant="15" id="dCK-SG-bnv"/>
                                     <constraint firstItem="zdS-hB-CWy" firstAttribute="leading" secondItem="iwX-rm-gxK" secondAttribute="leading" id="eKa-zB-Ojm"/>
                                     <constraint firstItem="qy4-nM-j1m" firstAttribute="leading" secondItem="paE-cd-wt4" secondAttribute="leading" constant="20" id="gD5-av-CKY"/>
                                     <constraint firstItem="ZY6-O7-ZgW" firstAttribute="centerX" secondItem="FFp-9d-GzB" secondAttribute="centerX" id="grE-Wu-zgo"/>
@@ -1301,13 +1316,14 @@
                     <connections>
                         <outlet property="fullNameLabel" destination="ZY6-O7-ZgW" id="QYz-JR-QS0"/>
                         <outlet property="instrumentsLabel" destination="EYc-jU-dPs" id="XHV-2W-hjM"/>
+                        <outlet property="linkTextView" destination="oQ4-2u-dU5" id="ohV-IN-T9l"/>
                         <outlet property="profileImage" destination="3Ar-16-Ceu" id="9Vx-iA-n5Q"/>
                         <outlet property="textView" destination="iwX-rm-gxK" id="5Et-5g-3Za"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3g-yq-6CY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3851" y="-2285"/>
+            <point key="canvasLocation" x="3850.7246376811595" y="-2285.4910714285711"/>
         </scene>
         <!--Trainer Edit ProfileVC-->
         <scene sceneID="unK-Ic-iRq">
@@ -1356,7 +1372,7 @@
                                     <constraint firstAttribute="height" constant="34" id="8Zb-1t-YVS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instrument(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yth-VD-KJB">
                                 <rect key="frame" x="20" y="180" width="71" height="14"/>
@@ -1474,6 +1490,9 @@
         <namedColor name="BrandGrayBlack">
             <color red="0.41568627450980394" green="0.41568627450980394" blue="0.41568627450980394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

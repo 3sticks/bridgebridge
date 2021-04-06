@@ -44,6 +44,7 @@ class TrainerProfileViewController: UIViewController, UITextViewDelegate {//thro
         let about = trainer["about"] as? String
         let instrumentText = trainer["instrument"] as? String
         let experience = user!["experience"] as? String
+        //TODO let link = link (do the same thing you ddid for the trainer)
         
         
         //dont want user to edit textview here

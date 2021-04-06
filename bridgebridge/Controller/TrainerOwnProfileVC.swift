@@ -21,6 +21,7 @@ class TrainerOwnProfileVC:  UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var instrumentsLabel: UILabel!
+    @IBOutlet var linkTextView: UITextView!
     
     var menu: SideMenuNavigationController? //CAN DO THIS HERE OR CAN CREATE THE NAV CONTROLLER
 //    let username = user!["username"] as? String
@@ -69,6 +70,10 @@ class TrainerOwnProfileVC:  UIViewController, UINavigationControllerDelegate, UI
         textView.isEditable = false
         
 
+        //neew to limit the link to the screen size
+        //all the other linkview editing is done in settings
+        linkTextView.textContainer.maximumNumberOfLines = 1
+        linkTextView.textContainer.lineBreakMode = .byTruncatingTail
 
         //replacing occurences didnt work
         
@@ -136,7 +141,7 @@ class TrainerOwnProfileVC:  UIViewController, UINavigationControllerDelegate, UI
         let instrumentText = user!["instrument"] as? String
         instrumentsLabel.text = instrumentText
             
-         //Your code here will execute after viewDidLoad() or when you dismiss the child viewController
+         //Your code here will execute after viewDidLoad() or when you dismiss the child viewController --dismissing child view controller is the big one here numbnuts 
 
     }
     /*UI TEXT VIEW*/

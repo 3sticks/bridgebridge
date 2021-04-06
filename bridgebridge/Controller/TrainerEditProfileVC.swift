@@ -82,6 +82,7 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
         
     }
 
+    //this function actively checks whether the user enters a link or not. if they stop editing the box and it is not a link, they are warned, and "" is saved as the link (so you can add it to the about me link
     
     //chcek that the user stopped editing the link box
     @IBAction func stopEditingLInk(_ sender: Any) {
@@ -128,7 +129,8 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
         }
         
         //check editing 
-        
+    
+        //TODO need to add link to about me, or create new about me.
 
         //get the user ID
         let id = user!["id"] as? String
