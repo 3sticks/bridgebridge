@@ -64,6 +64,7 @@ class TrainerOwnProfileVC:  UIViewController, UINavigationControllerDelegate, UI
         let about = user!["about"] as? String
         let instrumentText = user!["instrument"] as? String
         let experience = user!["experience"] as? String
+        let link = user!["link"] as? String
         
         
         //dont want user to edit textview here
@@ -81,6 +82,7 @@ class TrainerOwnProfileVC:  UIViewController, UINavigationControllerDelegate, UI
         fullNameLabel.text = name //fixme do we need this if the username is the nav title?
         textView.text = about
         instrumentsLabel.text = instrumentText
+        linkTextView.text = link
         
         
         // get user profile picture
@@ -128,6 +130,9 @@ class TrainerOwnProfileVC:  UIViewController, UINavigationControllerDelegate, UI
         //will user name need to be here?
         let instrumentText = user!["instrument"] as? String
         instrumentsLabel.text = instrumentText
+        
+        let link = user!["link"] as? String
+        linkTextView.text = link //should probably make this like its own function pulling all the values lol
     }
     //But, the save button wasnt impacting view will apear, so i said fuck it and added view did appear, and it worked. best practice? i dont know. facebook can figure it out when they buy the app.
     override func viewDidAppear(_ animated: Bool) {
@@ -140,8 +145,11 @@ class TrainerOwnProfileVC:  UIViewController, UINavigationControllerDelegate, UI
             textView.text = about
         let instrumentText = user!["instrument"] as? String
         instrumentsLabel.text = instrumentText
+        
+        let link = user!["link"] as? String
+        linkTextView.text = link
             
-         //Your code here will execute after viewDidLoad() or when you dismiss the child viewController --dismissing child view controller is the big one here numbnuts 
+         //Your code here will execute after viewDidLoad() or when you dismiss the child viewController --dismissing child view controller is the big one here numbnuts
 
     }
     /*UI TEXT VIEW*/

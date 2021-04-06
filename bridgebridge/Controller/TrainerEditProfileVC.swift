@@ -40,7 +40,7 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
         let instrumentText = user!["instrument"] as? String
         let name = user!["fullname"] as? String //user sets their full name at the beginning
         let experience = user!["experience"] as? String
-        //let linky = user!["*"]
+        let link = user!["link"] as? String
         
         if about! == "" {
         
@@ -64,6 +64,7 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
         nameLabel.text = name
         instrument.text = instrumentText
         exper.text = experience
+        linkBox.text = link
         
     }
     
@@ -103,7 +104,7 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
                 linkBox.shake() //shake extension
                 
                 //let them know by changing the label text
-                linkLabel.text = "Invalid link will not be saved"
+                linkLabel.text = "Please enter a valid link or leave blank"
                 linkLabel.textColor = UIColor.red
                 
                 //need a begin editing to return it back to normal....
@@ -128,6 +129,29 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
             textView.text = ""
         }
         
+        
+        //adding this in here too. if they dont have a valid link, dont let them save. this would show up outside the above break check if they dont click outside of the link box before pressing save
+        
+        
+        if !(linkBox.text!.isValidURL) && linkBox.text! != "" {//if NOT A VALID LINK AND is not blank, throw a flag -- this lets there be a blank if they dont want a link
+            //i want them to be able to have a blank here too....
+            //cant do like i do above cause then it breaks the whole thing
+            
+            
+            //make box red
+            linkBox.layer.borderColor = UIColor.red.cgColor
+            linkBox.layer.borderWidth = 1.0
+            linkBox.shake() //shake extension
+            
+            //let them know by changing the label text
+            linkLabel.text = "Please enter a valid link or leave blank"
+            linkLabel.textColor = UIColor.red
+            
+        
+            
+        } else { //let it roll
+        
+        
         //check editing 
     
         //TODO need to add link to about me, or create new about me.
@@ -135,15 +159,16 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
         //get the user ID
         let id = user!["id"] as? String
         //COMMENTS FOR ALL OF THIS ARE ON THE REGISTER SCREEN IF YOU FORGET
-        let url = URL(string: "https://mybridgeapp.com/aboutme.php")!
+        let url = URL(string: "https://mybridgeapp.com/abouttrainer.php")!
         
         var request = URLRequest(url: url)
         
         request.httpMethod = "POST"
         
         print(instrument.text!)
+            //link is linkbox text.... will either be blank or link
         //add bio info and id to body
-        let body = "about=\(textView.text!)&instrument=\(instrument.text!)&fullname=\(nameLabel.text!)&experience=\(exper.text!)&id=\(id!)"
+        let body = "about=\(textView.text!)&instrument=\(instrument.text!)&fullname=\(nameLabel.text!)&experience=\(exper.text!)&link=\(linkBox.text!)&id=\(id!)"
         print(body)
         request.httpBody = body.data(using: .utf8)
         
@@ -193,6 +218,7 @@ class TrainerEditProfileVC: UIViewController , UITextViewDelegate {
                         }.resume()
 
        self.navigationController?.popViewController(animated: true)
+    }
     }
 
     //if they press done.... actually..... i wamt the placeholder gone, since they can post a pic with no text. yeah, remove this. but keep it just in case.
