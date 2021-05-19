@@ -17,6 +17,7 @@ class TrainerProfileViewController: UIViewController, UITextViewDelegate {//thro
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var instrumentsLabel: UILabel!
+    @IBOutlet var linkybou: UITextView!
     
 //    let username = user!["username"] as? String
 //    let ava = user!["ava"] as? String
@@ -44,7 +45,13 @@ class TrainerProfileViewController: UIViewController, UITextViewDelegate {//thro
         let about = trainer["about"] as? String
         let instrumentText = trainer["instrument"] as? String
         let experience = trainer["experience"] as? String
-        //TODO let link = link (do the same thing you ddid for the trainer)
+        let link = trainer["link"] as? String
+        
+        
+        //neew to limit the link to the screen size
+        //all the other linkview editing is done in settings
+        linkybou.textContainer.maximumNumberOfLines = 1
+        linkybou.textContainer.lineBreakMode = .byTruncatingTail
         
         
         //dont want user to edit textview here
@@ -55,6 +62,7 @@ class TrainerProfileViewController: UIViewController, UITextViewDelegate {//thro
         fullNameLabel.text = name //fixme do we need this if the username is the nav title?
         textView.text = about
         instrumentsLabel.text = instrumentText
+        linkybou.text = link
         
         
         // get user profile picture
