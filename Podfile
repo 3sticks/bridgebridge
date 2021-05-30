@@ -11,6 +11,9 @@ target 'bridgebridge' do
  pod "YPImagePicker"
  pod "SDWebImage"
  pod 'Stripe'
+ pod 'CalendarKit'
+ pod 'DatePickerDialog'
+
 
 
   target 'bridgebridgeTests' do

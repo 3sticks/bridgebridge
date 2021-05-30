@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (5.4.1)
+  - CalendarKit (1.0.7)
+  - DatePickerDialog (4.0)
   - PryntTrimmerView (4.0.2)
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
@@ -15,6 +17,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - CalendarKit
+  - DatePickerDialog
   - SDWebImage
   - SideMenu
   - Stripe
@@ -23,6 +27,8 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CalendarKit
+    - DatePickerDialog
     - PryntTrimmerView
     - SDWebImage
     - SideMenu
@@ -32,6 +38,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  CalendarKit: 133cfd0e96ea93ca69cdae01f7de29987171779d
+  DatePickerDialog: ccff2f91ff7a018057a4d72fa5ad6de49c8cb0cd
   PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
@@ -39,6 +47,6 @@ SPEC CHECKSUMS:
   Stripe: 326a2160ac541eeffafb8b1aa0c9712e3ce8cec7
   YPImagePicker: 15aed8bcaa4dad976e11b6114126d731a2f9f3c9
 
-PODFILE CHECKSUM: 7e542f8a661aab5ec4d7c20e2dbea57944b42f5e
+PODFILE CHECKSUM: 94c38d5917a9755134980ac3f94a150711a3419a
 
 COCOAPODS: 1.10.0

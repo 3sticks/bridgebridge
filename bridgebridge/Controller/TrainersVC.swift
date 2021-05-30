@@ -104,7 +104,7 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
     func doSearch(_ word : String) {
         //data to pass
         let word = searchBurp.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) //get rid of whitespace?? yes, because they are stored as % in sql
-        let username = user!["username"] as! String
+        let username = user!["username"] as! String //need to pass the username so it doesnt pull your own username 
         
         
         let url = URL(string: "https://mybridgeapp.com/deep/dive/do0d/trainers.php")!  // url path to trainers.php file
