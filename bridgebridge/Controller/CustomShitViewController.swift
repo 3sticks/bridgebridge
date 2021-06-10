@@ -13,7 +13,8 @@ class CustomShitViewController: UIViewController, UITableViewDataSource ,UITable
     @IBOutlet var expColl: UIButton!
     
     var strDate = ""
-    
+    var strDateDash = ""
+    var lessons = [AnyObject]()
     @IBOutlet var scrollypollyollu: UIScrollView!
     @IBOutlet var datePickerha: UIDatePicker!
     @IBOutlet var dateButton: UIButton!
@@ -53,23 +54,39 @@ class CustomShitViewController: UIViewController, UITableViewDataSource ,UITable
             swipeLeft.direction = .right
            self.view.addGestureRecognizer(swipeLeft)
         
+        getLessons()
 
-
-
+        print(user!["id"])
 
     }
+    override func viewDidAppear(_ animated: Bool) {
+        getLessons()
+        print("view did appear")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        getLessons()
+        print("view will appear")
+    }
+    
+
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return lessons.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCell") as! RenameThisIfItWorksTVCell
 
            // Configure YourCustomCell using the outlets that you've defined.
+        let lesson = lessons[indexPath.row]
+        let lessonDate = lesson["datey"] as? String
+        let instrument = lesson["instrument"] as? String
+        let lessonstart = lesson["starttime"] as? String
+        cell.testLabel.text = lessonDate
+        cell.instrumentlabel.text = instrument
         
-        cell.testLabel.text = strDate
     
 
         return cell
@@ -111,12 +128,14 @@ class CustomShitViewController: UIViewController, UITableViewDataSource ,UITable
     //if the date changes, run get date function
     @IBAction func dateChanged(_ sender: Any) {
         getDate()
+        getLessons() //need to add get lessons here numbnuts -- or just put it in get date?????
     }
     
     //changes title of nav bar and also stores date as a string
     func getDate() {
         let df = DateFormatter()
         df.dateStyle = DateFormatter.Style.short
+//        df.dateFormat = "MM-d-yyyy"
         strDate = df.string(from: datePickerha.date)
 
 
@@ -140,11 +159,102 @@ class CustomShitViewController: UIViewController, UITableViewDataSource ,UITable
         }
 
         tableVIew.reloadData()
+        
+        let dfDash = DateFormatter()
+        dfDash.dateStyle = DateFormatter.Style.short
+        dfDash.dateFormat = "MM-d-yyyy"
+        strDateDash = dfDash.string(from: datePickerha.date)
 
-        print(user)
 
 
     }
+    
+    func getLessons() {
+        //data to pass
+        print(strDate)
+//        let datey = strDate.replacingOccurrences(of: "\\", with: "-") //get rid of whitespace?? yes, because they are stored as % in sql
+        let datey = strDateDash
+        print(datey)
+        let id = user!["id"] as! String //need to pass the username so it doesnt pull your own username
+        
+        
+        let url = URL(string: "https://mybridgeapp.com/deep/dive/do0d/getlessons.php")!  // url path to trainers.php file
+        
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        //add bio info and id to body
+        let body = "datey=\(datey)&id=\(id)" //username and word being passed
+        print(body)
+
+        request.httpBody = body.data(using: .utf8)
+        
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if error == nil {
+        
+                DispatchQueue.main.async(execute: {
+                    
+                    do {
+                        // get json result
+                        let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary //data is in a dictionary form -- you know what that means
+                        
+                        
+                        //cleanup
+                        self.lessons.removeAll(keepingCapacity: false)
+                        //this is needed so the rows dont stay the same... if row one at started has flowers, and you search, the person who moves to row one will have flowers
+                        self.tableVIew.reloadData()
+                        
+                        // assign json to new var parseJSON in guard/secured way
+                        guard let parseJSON = json else { ///guard is a safety method  if parse is not equal to json, break and present error
+                            print("Error while parsing")
+                            return
+                        }
+                        
+                        guard let parseLESSSONS = parseJSON["lessons"] else {
+                            print(parseJSON["message"] ?? [NSDictionary]())
+                            return
+                        }
+                        
+                        print(parseLESSSONS)
+                        //store users in array
+                        self.lessons = (parseLESSSONS as? [AnyObject])!
+                        
+                        
+                        //reload tableview
+                        self.tableVIew.reloadData()
+                        
+                        
+                        // successfully registered
+//                        if about != nil {
+//
+//                            // save user information we received from our host
+//                             UserDefaults.standard.set(parseJSON, forKey: "parseJSON")//save
+//                             user = UserDefaults.standard.value(forKey: "parseJSON") as? NSDictionary //assign to user variable
+//
+//                            print(parseJSON)
+//
+//                        }
+                       
+                    } catch {
+                           
+                           print("Caught an error \(error)")
+
+                       }
+               })
+               
+            }else {
+               
+               print(error)
+           }
+                            
+                       
+                        }.resume()
+        
+        
+    }
+
     
     
     

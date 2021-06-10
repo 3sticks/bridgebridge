@@ -21,6 +21,7 @@
 		9A7A17A8260441A1003BE62D /* TrainerOwnProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A17A7260441A1003BE62D /* TrainerOwnProfileVC.swift */; };
 		9A7A17B426053F38003BE62D /* TrainerEditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A17B326053F38003BE62D /* TrainerEditProfileVC.swift */; };
 		9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */; };
+		9A8A9B422672A0EE00791A79 /* SeeTrainerLessonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A9B412672A0EE00791A79 /* SeeTrainerLessonsVC.swift */; };
 		9AAD79E025FDB34900D46321 /* TrainersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD79DF25FDB34900D46321 /* TrainersVC.swift */; };
 		9AAD79E425FDB38900D46321 /* trainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD79E325FDB38900D46321 /* trainers.swift */; };
 		9AAE48C625EF2E57005EEA60 /* UserEditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE48C525EF2E57005EEA60 /* UserEditProfileVC.swift */; };
@@ -74,6 +75,7 @@
 		9A7A17A7260441A1003BE62D /* TrainerOwnProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerOwnProfileVC.swift; sourceTree = "<group>"; };
 		9A7A17B326053F38003BE62D /* TrainerEditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerEditProfileVC.swift; sourceTree = "<group>"; };
 		9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
+		9A8A9B412672A0EE00791A79 /* SeeTrainerLessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeTrainerLessonsVC.swift; sourceTree = "<group>"; };
 		9AAD79DF25FDB34900D46321 /* TrainersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainersVC.swift; sourceTree = "<group>"; };
 		9AAD79E325FDB38900D46321 /* trainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainers.swift; sourceTree = "<group>"; };
 		9AAE48C525EF2E57005EEA60 /* UserEditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditProfileVC.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				9A2C6F3D265F3068001B4B77 /* trainercellvcTableViewCell.swift */,
 				9A2C6F5326630976001B4B77 /* RenameThisIfItWorksTVCell.swift */,
 				9A2C6F572663258B001B4B77 /* TrainerAddNewLessonViewController.swift */,
+				9A8A9B412672A0EE00791A79 /* SeeTrainerLessonsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				9AEEAF0625E498D000A1D75E /* MessageCell.swift in Sources */,
 				9A7A178825FE6974003BE62D /* TrainerProfileViewController.swift in Sources */,
 				9AAD79E425FDB38900D46321 /* trainers.swift in Sources */,
+				9A8A9B422672A0EE00791A79 /* SeeTrainerLessonsVC.swift in Sources */,
 				9A2C6F3E265F3068001B4B77 /* trainercellvcTableViewCell.swift in Sources */,
 				9AEEAF1325E74F3B00A1D75E /* TabBarViewController.swift in Sources */,
 				9AC313A22655F49600634DF5 /* DatePickerController.swift in Sources */,

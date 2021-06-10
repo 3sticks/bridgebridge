@@ -82,6 +82,8 @@ class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate,
         price.inputAccessoryView = toolBar
         lessonScrip.inputAccessoryView = toolBar
         
+    
+        
         
     }
     
@@ -118,6 +120,145 @@ class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate,
             
             
         }
+        
+        
+    }
+    
+    //i want get lessons to run when this view goes away, so new lessons added same day will show up
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+
+            if let firstVC = presentingViewController as? CustomShitViewController {
+                DispatchQueue.main.async {
+                    firstVC.tableVIew.reloadData()
+                }
+            }
+        }
+    
+
+    
+    
+    @IBAction func save(_ sender: Any) {
+        
+        //get the user ID
+        let id = user!["id"] as? String
+        
+        let df = DateFormatter()
+        df.dateFormat = "MM-d-yyyy"
+//        df.dateStyle = DateFormatter.Style.short
+        let strtDate = df.string(from: datePicker.date)
+        let endDateStr = df.string(from: endTime.date)
+        
+        
+        let strtDate2 = strtDate.replacingOccurrences(of: "\\", with: "-")
+        let endDateStr2 = endDateStr.replacingOccurrences(of: "\\", with: "-")
+        print(strtDate2)
+        
+        let date = self.datePicker.date
+        let endDate = self.endTime.date
+        let startTimeDisplay = date.dateStringWith(strFormat: "hh:mm a")
+        print(startTimeDisplay)
+        let endTimeDisplay = endDate.dateStringWith(strFormat: "hh:mm a")
+        print (startTimeDisplay)
+        
+//        //i want to get the LENGTH of the lesson, so ill need military time.
+//        let startTimeMath = date.dateStringWith(strFormat: "HH:mm a")
+//        print(startTimeMath)
+//        let endTimeMath = endDate.dateStringWith(strFormat: "HH:mm a")
+//        print (endTimeMath)
+        
+        //Better option... get length, so get minutes from midnight for both. borrow logic from Time Lorde
+        let calendar = Calendar.current
+        let startMinutes = calendar.component(.hour, from: date) * 60 + calendar.component(.minute, from: date)
+        let endMinutes = calendar.component(.hour, from: endDate) * 60 + calendar.component(.minute, from: endDate)
+        
+        var length = Int()
+        
+        //if lesson passes midnight, end time will be less than start time
+        if endMinutes < startMinutes{
+            length = endMinutes - startMinutes + 1440
+
+        } else {
+            length = endMinutes - startMinutes
+        }
+        print(length)
+        
+        //unique lesson id is the trainer ID, the start time, and the date. this is going to be unique in the database, so a trainer cant make a leson that starts at the same time on the same date also its used for pulling lesson info
+        let uniqueID = id!+strtDate+startTimeDisplay
+        
+        print(datePicker.date)
+        print(endTime.date)
+        print(innytextfield.text)
+        print(numberOfAtendees.text)
+        print(price.text)
+        let desssssy = "poop"
+        print(strtDate)
+        print(endDateStr)
+        
+        
+        let url = URL(string: "https://mybridgeapp.com/newlesson.php")!
+        
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        
+        //    public function createLesson($id, $datey, $starttime, $endtime, $lessonlength, $instrument, $numpermitted, $price, $description)
+        let body = "datey=\(strtDate2)&starttime=\(startTimeDisplay)&endtime=\(endTimeDisplay)&lessonlength=\(length)&instrument=\(innytextfield.text!)&numpermitted=\(numberOfAtendees.text!)&price=\(price.text!)&description=\(desssssy)&uniqueid=\(uniqueID)&id=\(id!)"
+        print(body)
+        
+        request.httpBody = body.data(using: .utf8)
+        
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if error == nil {
+        
+                DispatchQueue.main.async(execute: {
+                    
+                    do {
+                        // get json result
+                        let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary //data is in a dictionary form -- you know what that means
+                        
+                        // assign json to new var parseJSON in guard/secured way
+                        guard let parseJSON = json else { ///guard is a safety method  if parse is not equal to json, break and present error
+                            print("Error while parsing")
+                            return
+                        }
+                        
+                        print(parseJSON)
+                        let lesson = parseJSON["uniqueid"] //get the about text
+                        
+                        // successfully registered
+                        if lesson != nil {
+
+//                            // save user information we received from our host
+//                             UserDefaults.standard.set(parseJSON, forKey: "parseJSON")//save
+//                             user = UserDefaults.standard.value(forKey: "parseJSON") as? NSDictionary //assign to user variable
+//
+                            print(parseJSON)
+                            
+                        }
+                       
+                    } catch {
+                           
+                           print("Caught an error \(error)")
+
+                       }
+               })
+               
+            }else {
+               
+               print(error)
+           }
+                            
+                       
+                        }.resume()
+
+        //adding this here instad of
+
+        self.dismiss(animated: true, completion: nil)
+        
+
         
         
     }
@@ -189,3 +330,13 @@ extension String {
         return Int(self) != nil
     }
 }
+// Extension of Date
+      extension Date {
+       func dateStringWith(strFormat: String) -> String {
+              let dateFormatter = DateFormatter()
+              dateFormatter.timeZone = Calendar.current.timeZone
+              dateFormatter.locale = Calendar.current.locale
+              dateFormatter.dateFormat = strFormat
+              return dateFormatter.string(from: self)
+          }
+      }

@@ -103,6 +103,7 @@ class TrainersVC: UITableViewController, UISearchBarDelegate {
     //search/retrieve users
     func doSearch(_ word : String) {
         //data to pass
+        //why is this necessary if your passing the search term?
         let word = searchBurp.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) //get rid of whitespace?? yes, because they are stored as % in sql
         let username = user!["username"] as! String //need to pass the username so it doesnt pull your own username 
         

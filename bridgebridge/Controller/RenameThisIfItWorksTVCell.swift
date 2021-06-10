@@ -10,6 +10,7 @@ import UIKit
 
 class RenameThisIfItWorksTVCell: UITableViewCell {
 
+    @IBOutlet weak var instrumentlabel: UILabel!
     @IBOutlet weak var testLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

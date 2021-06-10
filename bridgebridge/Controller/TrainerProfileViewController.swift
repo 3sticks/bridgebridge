@@ -12,7 +12,7 @@ class TrainerProfileViewController: UIViewController, UITextViewDelegate {//thro
     
     //variable that stores trainer info passed via segue
     var trainer = NSDictionary()
-    
+    var trainerID: Int?
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var textView: UITextView!
@@ -46,6 +46,7 @@ class TrainerProfileViewController: UIViewController, UITextViewDelegate {//thro
         let instrumentText = trainer["instrument"] as? String
         let experience = trainer["experience"] as? String
         let link = trainer["link"] as? String
+        trainerID = trainer["id"] as? Int //added this in to pass to lessons
         
         
         //neew to limit the link to the screen size
@@ -94,6 +95,15 @@ class TrainerProfileViewController: UIViewController, UITextViewDelegate {//thro
         // Do any additional setup after loading the view.
     }
     
+    //im pretty sure this guard let is saying like if the destination is not seetrainer, then dont do shit. at least i hop eit is
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let lessonVC = segue.destination as? SeeTrainerLessonsVC else { return }
+    
+        lessonVC.id = trainerID//pass the trainer id to the lessons screen so we can pull that shit in
+        //can probably use the same PHP
+    }
+
+    
     
     //TODO figure out if you need both of these. seem redundant??
     
@@ -141,5 +151,8 @@ class TrainerProfileViewController: UIViewController, UITextViewDelegate {//thro
         // Pass the selected object to the new view controller.
     }
     */
+    
 
 }
+
+
