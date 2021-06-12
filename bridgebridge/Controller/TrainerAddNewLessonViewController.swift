@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBOutlet weak var endTime: UIDatePicker!
@@ -27,9 +27,13 @@ class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate,
     
     var pickerData: [String] = [String]()
     let innypicker = UIPickerView()
-    let placeHolderText = "Tell the people what this lesson is all about. What are you doing? What are you hoping to accomplish? Are you teaching a ballad, chord changes from G to D? Keep it clean, simple, and appealing. This is your chance to sell it. "
+    let placeHolderText = "Tell the people what this lesson is all about. What are you doing? What are you hoping to accomplish? Are you teaching a ballad, chord changes from G to D? Keep it clean, simple, and appealing. This is your chance to sell it. Be sure to include skill level. I'm leaving it up to you to interpret 'skill level'."
+    let errorText = "You need to put something here. It's the only way to sell your lesson, and I can't let you leave it blank. You can think of something."
     
     override func viewDidLoad() {
+        
+        
+        lessonScrip.delegate = self
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround() //HIDE THE KEYBOARD WHEN TAPPED
         
@@ -83,7 +87,7 @@ class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate,
         lessonScrip.inputAccessoryView = toolBar
         
     
-        
+        lessonScrip.text = placeHolderText
         
     }
     
@@ -135,10 +139,23 @@ class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate,
             }
         }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        //so because this is literally always gonna be the placeholder text, because this is a new lesson, i dont need the if. BUT, if they stop editing then come back to it.... yeah keep the if
+        if lessonScrip.text == placeHolderText || lessonScrip.text == errorText{
+            lessonScrip.text = nil
+            lessonScrip.textColor = UIColor.black
+            lessonScrip.layer.borderColor = UIColor.black.cgColor
+        }
 
+        
+    }
     
     
     @IBAction func save(_ sender: Any) {
+        
+        
+        
         
         //get the user ID
         let id = user!["id"] as? String
@@ -183,6 +200,16 @@ class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate,
         }
         print(length)
         
+        
+        //so i want type to be group or single, so the user can sort
+        var type = String()
+        if numberOfAtendees.text == "1"{
+            type = "Single"
+            
+        }else {
+            type = "Group"
+        }
+        
         //unique lesson id is the trainer ID, the start time, and the date. this is going to be unique in the database, so a trainer cant make a leson that starts at the same time on the same date also its used for pulling lesson info
         let uniqueID = id!+strtDate+startTimeDisplay
         
@@ -195,6 +222,17 @@ class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate,
         print(strtDate)
         print(endDateStr)
         
+        //ERROR HANDLING FOR BLANKS AND SHIT PUT EVERYTHING IN HERE
+        //DO I WANT TO JUST WRITE A BUYNCH OF IFS AND THEN RETURN OUT OF THE FUNCTION? OR DO I WRITE ONE BIG IF ELSE? IDL YET
+        if lessonScrip.text == placeHolderText || lessonScrip.text == "" || lessonScrip.text == errorText {
+            
+            lessonScrip.shake()
+            lessonScrip.layer.borderColor = UIColor.red.cgColor
+            lessonScrip.layer.borderWidth = 1.0
+            lessonScrip.text = errorText
+            lessonScrip.textColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
+            return
+        }
         
         let url = URL(string: "https://mybridgeapp.com/newlesson.php")!
         
@@ -203,7 +241,7 @@ class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate,
         request.httpMethod = "POST"
         
         //    public function createLesson($id, $datey, $starttime, $endtime, $lessonlength, $instrument, $numpermitted, $price, $description)
-        let body = "datey=\(strtDate2)&starttime=\(startTimeDisplay)&endtime=\(endTimeDisplay)&lessonlength=\(length)&instrument=\(innytextfield.text!)&numpermitted=\(numberOfAtendees.text!)&price=\(price.text!)&description=\(desssssy)&uniqueid=\(uniqueID)&id=\(id!)"
+        let body = "datey=\(strtDate2)&starttime=\(startTimeDisplay)&endtime=\(endTimeDisplay)&lessonlength=\(length)&instrument=\(innytextfield.text!)&numpermitted=\(numberOfAtendees.text!)&price=\(price.text!)&description=\(desssssy)&lessontype=\(type)&uniqueid=\(uniqueID)&id=\(id!)"
         print(body)
         
         request.httpBody = body.data(using: .utf8)

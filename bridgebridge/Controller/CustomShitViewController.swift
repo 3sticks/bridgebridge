@@ -34,6 +34,7 @@ class CustomShitViewController: UIViewController, UITableViewDataSource ,UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarItem.title = "Schedule"
+        self.tableVIew.rowHeight = 120.0
         // Do any additional setup after loading the view.
         //test
         //COLORS ARE SET IN THE SIDE BAR. I HAVE MADE IT CLEAR
@@ -84,9 +85,16 @@ class CustomShitViewController: UIViewController, UITableViewDataSource ,UITable
         let lessonDate = lesson["datey"] as? String
         let instrument = lesson["instrument"] as? String
         let lessonstart = lesson["starttime"] as? String
-        cell.testLabel.text = lessonDate
+        let lessonend = lesson["endtime"] as? String
+        let lessontype = lesson["lessontype"] as? String
+        let attending = lesson["numattending"] as? Int
+        let permitted = lesson["numpermitted"] as? Int
+        //cell.testLabel.text = lessonDate
         cell.instrumentlabel.text = instrument
+        cell.combinedTime.text = "\(lessonstart!)-\(lessonend!)"
+        cell.attendees.text = "\(lessontype!) \(attending!)/\(permitted!)"
         
+        //i want something like if attending = permitted color it gold. 
     
 
         return cell

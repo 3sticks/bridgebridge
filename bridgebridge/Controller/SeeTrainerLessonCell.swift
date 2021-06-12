@@ -1,19 +1,20 @@
 //
-//  RenameThisIfItWorksTVCell.swift
+//  SeeTrainerLessonCell.swift
 //  bridgebridge
 //
-//  Created by Hugo Bucci III on 5/29/21.
+//  Created by Hugo Bucci III on 6/10/21.
 //  Copyright © 2021 Hugo Bucci III. All rights reserved.
 //
 
 import UIKit
 
-class RenameThisIfItWorksTVCell: UITableViewCell {
-
+class SeeTrainerLessonCell: UITableViewCell {
+    
     @IBOutlet weak var instrumentlabel: UILabel!
     @IBOutlet weak var testLabel: UILabel!
     @IBOutlet weak var combinedTime: UILabel!
     @IBOutlet weak var attendees: UILabel!
+    @IBOutlet weak var lessonprice: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
