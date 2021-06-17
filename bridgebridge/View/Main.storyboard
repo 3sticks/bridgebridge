@@ -1241,7 +1241,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1-30" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DjH-y1-0bm">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DjH-y1-0bm">
                                                 <rect key="frame" x="182" y="465" width="50" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="GY2-ky-iXr"/>
@@ -1249,6 +1249,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
+                                                    <action selector="attendPermitBeginEditing:" destination="HxS-eh-MEU" eventType="editingDidEnd" id="wmz-0m-ACs"/>
                                                     <action selector="stopEditingAttendPermit:" destination="HxS-eh-MEU" eventType="editingDidEnd" id="Wzl-3b-w5A"/>
                                                 </connections>
                                             </textField>
@@ -1311,8 +1312,12 @@
                                                     <action selector="cancelButton:" destination="HxS-eh-MEU" eventType="touchUpInside" id="ecJ-rR-hXx"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x Max number of attendees is 30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtU-xc-xIl">
-                                                <rect key="frame" x="240" y="478" width="130" height="9.6666666666666856"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x Max number of attendees is 1 right now. Future updates will allow groups of up to 10." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtU-xc-xIl">
+                                                <rect key="frame" x="240" y="465" width="126" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="126" id="8ci-YC-SbQ"/>
+                                                    <constraint firstAttribute="height" constant="40" id="CsV-Xg-zet"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1337,6 +1342,7 @@
                                             <constraint firstItem="GLV-gp-Ncw" firstAttribute="top" secondItem="nkG-Hj-Z1b" secondAttribute="bottom" constant="15" id="MWB-RA-WRa"/>
                                             <constraint firstItem="1b4-FU-999" firstAttribute="top" secondItem="uth-xe-hGb" secondAttribute="top" constant="8" id="TvC-p0-8Zs"/>
                                             <constraint firstItem="GLE-pW-WXb" firstAttribute="centerX" secondItem="uth-xe-hGb" secondAttribute="centerX" id="Ubt-ac-QU7"/>
+                                            <constraint firstItem="rtU-xc-xIl" firstAttribute="top" secondItem="UpF-Bf-7tu" secondAttribute="bottom" constant="15" id="Uu8-nR-acX"/>
                                             <constraint firstAttribute="trailing" secondItem="GLV-gp-Ncw" secondAttribute="trailing" constant="10" id="XMg-mU-qZE"/>
                                             <constraint firstItem="Rxb-Pw-qvg" firstAttribute="centerX" secondItem="uth-xe-hGb" secondAttribute="centerX" id="Xyh-Qb-yHc"/>
                                             <constraint firstItem="DjH-y1-0bm" firstAttribute="top" secondItem="UpF-Bf-7tu" secondAttribute="bottom" constant="15" id="ZJt-e4-WYG"/>
@@ -1345,7 +1351,6 @@
                                             <constraint firstItem="zl3-Cn-KI0" firstAttribute="top" secondItem="uth-xe-hGb" secondAttribute="top" constant="5" id="fM5-cZ-qrV"/>
                                             <constraint firstItem="JC1-i2-nv6" firstAttribute="centerX" secondItem="uth-xe-hGb" secondAttribute="centerX" id="gGk-JD-vTW"/>
                                             <constraint firstItem="nkG-Hj-Z1b" firstAttribute="centerX" secondItem="uth-xe-hGb" secondAttribute="centerX" id="irc-Ge-aLP"/>
-                                            <constraint firstItem="rtU-xc-xIl" firstAttribute="top" secondItem="UpF-Bf-7tu" secondAttribute="bottom" constant="28" id="mHP-GP-nkZ"/>
                                             <constraint firstItem="Rxb-Pw-qvg" firstAttribute="top" secondItem="Zz5-eS-OKo" secondAttribute="bottom" constant="20" id="n1Y-HV-EWE"/>
                                             <constraint firstItem="rot-eQ-JFg" firstAttribute="top" secondItem="aZF-2a-mrR" secondAttribute="bottom" constant="15" id="n8a-Zd-XM7"/>
                                             <constraint firstItem="JC1-i2-nv6" firstAttribute="top" secondItem="uth-xe-hGb" secondAttribute="top" constant="75" id="qjx-9j-ErE"/>
@@ -1990,6 +1995,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" name="BrandGold"/>
                                 </state>
+                                <connections>
+                                    <action selector="signup:" destination="mSF-xN-9xV" eventType="touchUpInside" id="1R7-po-tJh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="meg-u4-FRe"/>

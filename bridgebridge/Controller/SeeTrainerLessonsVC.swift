@@ -219,8 +219,12 @@ class SeeTrainerLessonsVC: UIViewController, UITableViewDataSource ,UITableViewD
                             // assign json to new var parseJSON in guard/secured way
                             guard let parseJSON = json else { ///guard is a safety method  if parse is not equal to json, break and present error
                                 print("Error while parsing")
+
                                 return
                             }
+                            
+                            print("HAHAHA LOOK")
+                            print(parseJSON)
                             
                             guard let parseLESSSONS = parseJSON["lessons"] else {
                                 print(parseJSON["message"] ?? [NSDictionary]())
@@ -228,7 +232,7 @@ class SeeTrainerLessonsVC: UIViewController, UITableViewDataSource ,UITableViewD
                             }
                             
                             print(parseLESSSONS)
-                            //store users in array
+                            //store lessons in array
                             self.lessons = (parseLESSSONS as? [AnyObject])!
                             
                             

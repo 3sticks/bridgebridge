@@ -107,16 +107,16 @@ class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate,
     @IBAction func stopEditingAttendPermit(_ sender: Any) {
         if numberOfAtendees.text != ""{ //if they stopped editing it and its not blank
             
+            //TODO make this more than one
             let numbees = String(numberOfAtendees.text!)
             if numbees.isInt { //if it IS an int, make sure its less than thirty
-                if Int(numbees)! >= 30 {
+                if Int(numbees)! >= 1 { //changing this to 1.... 06/16/21 -- one day it will be more than 1, but thats in a later update
                     attendeesError.isHidden = false
                     self.attendeesError.shake() //use the shake extension
                     //self.userNameTextField.backgroundColor = UIColor.red
                     self.numberOfAtendees.layer.borderColor = UIColor.red.cgColor
                     self.numberOfAtendees.layer.borderWidth = 1.0
-                    //show the error label
-                    
+
                     
                 }
                 
@@ -127,6 +127,18 @@ class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate,
         
         
     }
+    
+    @IBAction func attendPermitBeginEditing(_ sender: Any) {
+        
+        //hide that error shit if its showing
+        if !attendeesError.isHidden{
+            attendeesError.isHidden = true
+            //also if its showing it means the colors are red. change them to black
+            numberOfAtendees.layer.borderColor = UIColor.black.cgColor //is this the right color?
+        }
+    }
+    
+    
     
     //i want get lessons to run when this view goes away, so new lessons added same day will show up
     override func viewWillDisappear(_ animated: Bool) {
