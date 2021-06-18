@@ -6,6 +6,8 @@
 //  Copyright © 2021 Hugo Bucci III. All rights reserved.
 //
 
+//read this one day 
+//https://www.hackingwithswift.com/read/9/4/back-to-the-main-thread-dispatchqueuemain
 import UIKit
 
 class SeeTrainerLessonsVC: UIViewController, UITableViewDataSource ,UITableViewDelegate {

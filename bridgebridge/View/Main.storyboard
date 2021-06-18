@@ -1999,6 +1999,10 @@
                                     <action selector="signup:" destination="mSF-xN-9xV" eventType="touchUpInside" id="1R7-po-tJh"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="gRU-Of-XI8">
+                                <rect key="frame" x="189" y="417" width="37" height="37"/>
+                                <color key="tintColor" red="0.82410591840000003" green="0.75670403239999995" blue="0.54182463879999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="meg-u4-FRe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2008,8 +2012,11 @@
                             <constraint firstItem="sV7-9o-rLV" firstAttribute="leading" secondItem="meg-u4-FRe" secondAttribute="leading" constant="20" id="C5i-DW-Vf8"/>
                             <constraint firstItem="Q2l-Ob-Pfi" firstAttribute="leading" secondItem="meg-u4-FRe" secondAttribute="leading" constant="20" id="FbR-c0-6HP"/>
                             <constraint firstItem="rbW-8C-Hcz" firstAttribute="top" secondItem="Q2l-Ob-Pfi" secondAttribute="bottom" constant="20" id="IC0-ok-C2A"/>
+                            <constraint firstItem="gRU-Of-XI8" firstAttribute="top" secondItem="rbW-8C-Hcz" secondAttribute="bottom" constant="27" id="IPF-61-o7t"/>
                             <constraint firstItem="meg-u4-FRe" firstAttribute="trailing" secondItem="sV7-9o-rLV" secondAttribute="trailing" constant="20" id="NIs-4J-BME"/>
                             <constraint firstItem="Ip6-No-Czs" firstAttribute="leading" secondItem="meg-u4-FRe" secondAttribute="leading" constant="20" id="Qbl-Se-UND"/>
+                            <constraint firstItem="meg-u4-FRe" firstAttribute="trailing" secondItem="gRU-Of-XI8" secondAttribute="trailing" constant="188" id="Uz8-j0-VFT"/>
+                            <constraint firstItem="gRU-Of-XI8" firstAttribute="leading" secondItem="meg-u4-FRe" secondAttribute="leading" constant="189" id="ZUS-9B-Jye"/>
                             <constraint firstItem="Q2l-Ob-Pfi" firstAttribute="top" secondItem="Ip6-No-Czs" secondAttribute="bottom" constant="20" id="iHj-Yt-AHX"/>
                             <constraint firstItem="Ip6-No-Czs" firstAttribute="top" secondItem="meg-u4-FRe" secondAttribute="top" constant="20" id="kuD-60-192"/>
                             <constraint firstItem="sV7-9o-rLV" firstAttribute="top" secondItem="rbW-8C-Hcz" secondAttribute="bottom" constant="20" id="m6O-oT-zgP"/>
@@ -2024,6 +2031,8 @@
                         <outlet property="descriptionview" destination="rbW-8C-Hcz" id="8Wm-XC-xIW"/>
                         <outlet property="insturment" destination="Q2l-Ob-Pfi" id="mZQ-Cc-b7S"/>
                         <outlet property="price" destination="ubR-ms-IVD" id="T4e-wv-xpG"/>
+                        <outlet property="signupbutton" destination="sV7-9o-rLV" id="sHa-B3-BPG"/>
+                        <outlet property="spinner" destination="gRU-Of-XI8" id="lq8-3D-7ne"/>
                         <outlet property="time" destination="Ip6-No-Czs" id="gQG-ky-Q4Q"/>
                     </connections>
                 </viewController>
