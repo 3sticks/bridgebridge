@@ -20,6 +20,9 @@
 		9A7A17A426041FA7003BE62D /* TrainerRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A17A326041FA7003BE62D /* TrainerRegisterVC.swift */; };
 		9A7A17A8260441A1003BE62D /* TrainerOwnProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A17A7260441A1003BE62D /* TrainerOwnProfileVC.swift */; };
 		9A7A17B426053F38003BE62D /* TrainerEditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A17B326053F38003BE62D /* TrainerEditProfileVC.swift */; };
+		9A80574F267E536900EB691D /* UserOwnScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80574E267E536900EB691D /* UserOwnScheduleVC.swift */; };
+		9A805753267E559A00EB691D /* UserViewOwnSchedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A805752267E559A00EB691D /* UserViewOwnSchedCell.swift */; };
+		9A805757267FBB7E00EB691D /* UserLessonVIewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A805756267FBB7E00EB691D /* UserLessonVIewViewController.swift */; };
 		9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */; };
 		9A8A9B422672A0EE00791A79 /* SeeTrainerLessonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A9B412672A0EE00791A79 /* SeeTrainerLessonsVC.swift */; };
 		9A8A9B462672AADB00791A79 /* SeeTrainerLessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A9B452672AADB00791A79 /* SeeTrainerLessonCell.swift */; };
@@ -76,6 +79,9 @@
 		9A7A17A326041FA7003BE62D /* TrainerRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerRegisterVC.swift; sourceTree = "<group>"; };
 		9A7A17A7260441A1003BE62D /* TrainerOwnProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerOwnProfileVC.swift; sourceTree = "<group>"; };
 		9A7A17B326053F38003BE62D /* TrainerEditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerEditProfileVC.swift; sourceTree = "<group>"; };
+		9A80574E267E536900EB691D /* UserOwnScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOwnScheduleVC.swift; sourceTree = "<group>"; };
+		9A805752267E559A00EB691D /* UserViewOwnSchedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewOwnSchedCell.swift; sourceTree = "<group>"; };
+		9A805756267FBB7E00EB691D /* UserLessonVIewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLessonVIewViewController.swift; sourceTree = "<group>"; };
 		9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
 		9A8A9B412672A0EE00791A79 /* SeeTrainerLessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeTrainerLessonsVC.swift; sourceTree = "<group>"; };
 		9A8A9B452672AADB00791A79 /* SeeTrainerLessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeTrainerLessonCell.swift; sourceTree = "<group>"; };
@@ -242,6 +248,9 @@
 				9A8A9B412672A0EE00791A79 /* SeeTrainerLessonsVC.swift */,
 				9A8A9B452672AADB00791A79 /* SeeTrainerLessonCell.swift */,
 				9A8A9B49267412ED00791A79 /* UserSelectedLessonVC.swift */,
+				9A80574E267E536900EB691D /* UserOwnScheduleVC.swift */,
+				9A805752267E559A00EB691D /* UserViewOwnSchedCell.swift */,
+				9A805756267FBB7E00EB691D /* UserLessonVIewViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -436,6 +445,7 @@
 			files = (
 				9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */,
 				9A7A17A8260441A1003BE62D /* TrainerOwnProfileVC.swift in Sources */,
+				9A805757267FBB7E00EB691D /* UserLessonVIewViewController.swift in Sources */,
 				9A8A9B4A267412ED00791A79 /* UserSelectedLessonVC.swift in Sources */,
 				9A7A17B426053F38003BE62D /* TrainerEditProfileVC.swift in Sources */,
 				9A2C6F38265F15A7001B4B77 /* CustomShitViewController.swift in Sources */,
@@ -456,10 +466,12 @@
 				9AC313A22655F49600634DF5 /* DatePickerController.swift in Sources */,
 				9AAE48C625EF2E57005EEA60 /* UserEditProfileVC.swift in Sources */,
 				9A7A179926004FA8003BE62D /* ConnectOnboardViewController.swift in Sources */,
+				9A805753267E559A00EB691D /* UserViewOwnSchedCell.swift in Sources */,
 				9AEEAEFC25E498C500A1D75E /* LandingPageMainViewController.swift in Sources */,
 				9AAD79E025FDB34900D46321 /* TrainersVC.swift in Sources */,
 				9AC313A62655F64B00634DF5 /* CalandarViewController.swift in Sources */,
 				9AEEAEFD25E498C500A1D75E /* LogInViewController.swift in Sources */,
+				9A80574F267E536900EB691D /* UserOwnScheduleVC.swift in Sources */,
 				9A2C6F5426630976001B4B77 /* RenameThisIfItWorksTVCell.swift in Sources */,
 				9A05DFDF265C8D450037EF97 /* SwiftViewController.swift in Sources */,
 				9AEEAEFF25E498C500A1D75E /* RegisterViewController.swift in Sources */,

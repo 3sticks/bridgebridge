@@ -23,10 +23,17 @@ class UserSelectedLessonVC: UIViewController, UITextViewDelegate {
     var numpermitcheck = String()
     //check if user was able to sign up if it wasnt full
 //    var didsignup = Int()
-    var didsignup = 0101010
+    var didsignup = 0101010 {
+        //DID FUCKING SET!!!!!!!!! this watches didsignup to see changes! any time it changes run the function. i honestly dont know why this works when the user stays
+        //on the screen and keeps spamming sign up (which they wont be able to do anyway), but fuck it. FINALLY
+        //https://www.hackingwithswift.com/read/8/5/property-observers-didset
+        didSet {
+            infoReturnedSendAlert()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("did sign up \(didsignup)")
         descriptionview.delegate = self
         descriptionview.isEditable = false
         descriptionview.layer.borderWidth = 0.25
@@ -49,6 +56,21 @@ class UserSelectedLessonVC: UIViewController, UITextViewDelegate {
         let lessonprice = lesson["price"] as? String
         
         let uniqueid = lesson["uniqueid"] as? String
+        
+        //grab attending and permitted
+        let att = lesson["numattending"] as? Int
+        let perm = lesson["numpermitted"] as? Int
+        
+        print(att)
+        print(perm)
+        //check to see if its full
+        if att == perm{
+            //disable the button
+            signupbutton.isEnabled = false
+            signupbutton.setTitle("Lesson is full!", for: .normal)
+            //TODO maybe make this say like, notify me, then send them an email if it opens up????
+        }
+        
         
         print("LOOOOOK")
         print(lesson)
@@ -129,11 +151,15 @@ class UserSelectedLessonVC: UIViewController, UITextViewDelegate {
                             }.resume()
 
         //so a dumb fuckin way to do this.. have the program wait 2 secodnds while the network shit runs since its async and what not. so the system pauses. i think i actually like it... assuming it takes less than 2 fuckin seconds for the network shit to run. kind of a gamble. we'll work it out.
-        let seconds = 2.0
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            // Put your code which should be executed with a delay here
-            
+
+
+
+        }
+    
+    //this runs whenever disignup is changed
+    func infoReturnedSendAlert(){
+
             self.signupbutton.setTitle("Sign Up", for: .normal)
             //show the spinner
             self.spinner.isHidden = true
@@ -142,19 +168,60 @@ class UserSelectedLessonVC: UIViewController, UITextViewDelegate {
             //okay, new new plan. the us
             if self.didsignup == 1{
                 print("success")
+                // Create new Alert
+                var dialogMessage = UIAlertController(title: "Success!", message: "Successfully signed up for lesson", preferredStyle: .alert)
+                
+                // Create nice button with action handler
+                let nice = UIAlertAction(title: "Nice!", style: .default, handler: { (action) -> Void in
+                    print("Ok button tapped")
+                    //do i want to send the user to their own lesson schedule page here???
+                    
+                    //this goes to the user schedule page, which isnt built yet. Build it. 
+                    self.tabBarController?.selectedIndex = 2
+                    
+                 })
+                
+                //Add OK button to a dialog message
+                dialogMessage.addAction(nice)
+                // Present Alert to
+                self.present(dialogMessage, animated: true, completion: nil)
+                
+                
+                
             } else {
+                
+                // Create new Alert
+                var dialogMessage = UIAlertController(title: "Bummer", message: "This lesson filled up while you were reading about it. Head back to the trainers page to see what else they can offer!", preferredStyle: .alert)
+                
+                // Create nice button with action handler
+                
+                let okay = UIAlertAction(title: "Okay", style: .default, handler: { (action) -> Void in
+                    print("Ok button tapped")
+                    
+//                    if let firstViewController = self.navigationController?.viewControllers. {
+//                        self.navigationController?.popToViewController(firstViewController, animated: true)
+//                    }
+                    //go back one view  (back to the trainer lesson page)
+                    self.navigationController?.popViewController(animated: true)
+                    
+                    //send the user back to the trainer page
+                 })
+                
+                //Add OK button to a dialog message
+                dialogMessage.addAction(okay)
+                // Present Alert to
+                self.present(dialogMessage, animated: true, completion: nil)
+                
+                
                 
                 print("oh man someone signed up before you. try another lesson!")
             }
             print("dididid\(self.didsignup)")
-        }
         
-            self.dismiss(animated: true, completion: nil)
+//            self.dismiss(animated: true, completion: nil)
 
-
-
-
-        }
+        
+    }
         
         
         

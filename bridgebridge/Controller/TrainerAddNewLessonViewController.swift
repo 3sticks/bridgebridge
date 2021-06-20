@@ -110,7 +110,7 @@ class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate,
             //TODO make this more than one
             let numbees = String(numberOfAtendees.text!)
             if numbees.isInt { //if it IS an int, make sure its less than thirty
-                if Int(numbees)! >= 1 { //changing this to 1.... 06/16/21 -- one day it will be more than 1, but thats in a later update
+                if Int(numbees)! > 1 { //changing this to 1.... 06/16/21 -- one day it will be more than 1, but thats in a later update
                     attendeesError.isHidden = false
                     self.attendeesError.shake() //use the shake extension
                     //self.userNameTextField.backgroundColor = UIColor.red
@@ -119,6 +119,14 @@ class TrainerAddNewLessonViewController: UIViewController, UIPickerViewDelegate,
 
                     
                 }
+                
+            } else {//its not an int
+                attendeesError.text = "Please enter a number"
+                attendeesError.isHidden = false
+                self.attendeesError.shake() //use the shake extension
+                self.numberOfAtendees.layer.borderColor = UIColor.red.cgColor
+                self.numberOfAtendees.layer.borderWidth = 1.0
+
                 
             }
             

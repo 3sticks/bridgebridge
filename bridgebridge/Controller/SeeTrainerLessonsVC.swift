@@ -90,15 +90,38 @@ class SeeTrainerLessonsVC: UIViewController, UITableViewDataSource ,UITableViewD
             let lessonstart = lesson["starttime"] as? String
             let lessonend = lesson["endtime"] as? String
             let lessontype = lesson["lessontype"] as? String
-            let attending = lesson["numattending"] as? Int
-            let permitted = lesson["numpermitted"] as? Int
+            let attending = (lesson["numattending"] as? Int)!
+            let permitted = (lesson["numpermitted"] as? Int)!
             let price = lesson["price"] as? String
             cell.instrumentlabel.text = instrument
             cell.combinedTime.text = "\(lessonstart!)-\(lessonend!)"
-            cell.attendees.text = "\(lessontype!) \(attending!)/\(permitted!)"
+            cell.attendees.text = "\(lessontype!) \(attending)/\(permitted)"
             cell.lessonprice.text = "$\(price!)"
+            
 
-    
+            print(attending)
+            print(permitted)
+            if String(attending) == String(permitted){
+                
+                cell.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                cell.instrumentlabel.textColor = #colorLiteral(red: 0.8241059184, green: 0.7567040324, blue: 0.5418246388, alpha: 1)
+                cell.combinedTime.textColor = #colorLiteral(red: 0.8241059184, green: 0.7567040324, blue: 0.5418246388, alpha: 1)
+                cell.attendees.textColor = #colorLiteral(red: 0.8241059184, green: 0.7567040324, blue: 0.5418246388, alpha: 1)
+                cell.lessonprice.textColor = #colorLiteral(red: 0.8241059184, green: 0.7567040324, blue: 0.5418246388, alpha: 1)
+                cell.layer.borderWidth = 0.5
+                cell.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                cell.attendees.text = "\(lessontype!) \(attending)/\(permitted) Full"
+                
+            } else { //You NEED TO HAVE AN ELSE For this to work
+                cell.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                cell.instrumentlabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                cell.combinedTime.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                cell.attendees.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                cell.lessonprice.textColor = #colorLiteral(red: 0.8241059184, green: 0.7567040324, blue: 0.5418246388, alpha: 1)
+                cell.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cell.attendees.text = "\(lessontype!) \(attending)/\(permitted)"
+                
+            }
 
             return cell
         }
