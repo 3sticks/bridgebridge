@@ -43,7 +43,11 @@ class TrainerLessonTableTableViewController: UITableViewController {
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         datePicker.date = Date()
         datePicker.locale = .current
-        datePicker.preferredDatePickerStyle = .inline
+        if #available(iOS 14.0, *) {
+            datePicker.preferredDatePickerStyle = .inline
+        } else {
+            // Fallback on earlier versions
+        }
         
         //datePicker?.addTarget(self, action: #selector(handleDateSelection), for: .valueChanged)
         view.addSubview(datePicker)

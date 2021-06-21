@@ -1,4 +1,12 @@
 ${PODS_ROOT}/Target Support Files/Pods-bridgebridge/Pods-bridgebridge-frameworks.sh
+${PODS_ROOT}/AgoraRtcEngine_iOS/AgoraAIDenoiseExtension.framework
+${PODS_ROOT}/AgoraRtcEngine_iOS/AgoraRtcKit.framework
+${PODS_ROOT}/AgoraRtcEngine_iOS/Agoraffmpeg.framework
+${PODS_ROOT}/AgoraRtcEngine_iOS/AgoraCore.framework
+${PODS_ROOT}/AgoraRtcEngine_iOS/AgoraSoundTouch.framework
+${PODS_ROOT}/AgoraRtcEngine_iOS/Agorafdkaac.framework
+${PODS_ROOT}/AgoraRtcEngine_iOS/AgoraDav1dExtension.framework
+${PODS_ROOT}/AgoraRtcEngine_iOS/AgoraJNDExtension.framework
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/CalendarKit/CalendarKit.framework
 ${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework

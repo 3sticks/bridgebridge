@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Izm-6n-xhi">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -998,6 +999,7 @@
                         <segue destination="vzc-35-TUz" kind="relationship" relationship="viewControllers" id="DLh-92-3Ld"/>
                         <segue destination="Wj1-wb-Kh3" kind="relationship" relationship="viewControllers" id="1du-BB-p9Q"/>
                         <segue destination="KOl-eG-C1U" kind="relationship" relationship="viewControllers" id="37O-e5-TKW"/>
+                        <segue destination="6uX-Pg-5tJ" kind="relationship" relationship="viewControllers" id="Fvg-6d-fqd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzI-ii-Obb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2004,6 +2006,35 @@
                 <swipeGestureRecognizer direction="right" id="R9G-Us-6DR"/>
             </objects>
             <point key="canvasLocation" x="5452" y="-208"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="ruh-Gr-Fhl">
+            <objects>
+                <viewController id="6uX-Pg-5tJ" customClass="VIdeoChatViewController" customModule="bridgebridge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="06a-tU-Hn0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-Cc-4Xx">
+                                <rect key="frame" x="348" y="44" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="leave:" destination="6uX-Pg-5tJ" eventType="touchUpInside" id="cMc-df-Bia"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4hn-HX-b6L"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4hn-HX-b6L" firstAttribute="trailing" secondItem="kSm-Cc-4Xx" secondAttribute="trailing" constant="20" id="ieU-Tg-bwf"/>
+                            <constraint firstItem="kSm-Cc-4Xx" firstAttribute="top" secondItem="4hn-HX-b6L" secondAttribute="top" id="uwh-5z-DWg"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="sbl-sv-6vU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9HL-jP-bx6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6792.753623188406" y="-1407.5892857142856"/>
         </scene>
         <!--Lesson Signup-->
         <scene sceneID="xz2-6k-KXq">

@@ -39,7 +39,11 @@ class CustomShitViewController: UIViewController, UITableViewDataSource ,UITable
         //test
         //COLORS ARE SET IN THE SIDE BAR. I HAVE MADE IT CLEAR
 //        datePicker?.locale = Locale(identifier: "")
-        datePickerha.preferredDatePickerStyle = .inline
+        if #available(iOS 14.0, *) {
+            datePickerha.preferredDatePickerStyle = .inline
+        } else {
+            // Fallback on earlier versions
+        }
         
         //off the bat, set title to be collapse -- since were setting picker to be inline
 //        expColl.setTitle("Collapse", for: .normal)

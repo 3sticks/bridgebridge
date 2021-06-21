@@ -1,4 +1,7 @@
 PODS:
+  - AgoraRtcEngine_iOS (3.4.4)
+  - AgoraUIKit_iOS (1.5.0):
+    - AgoraRtcEngine_iOS (~> 3.4.0)
   - Alamofire (5.4.1)
   - CalendarKit (1.0.7)
   - DatePickerDialog (4.0)
@@ -16,6 +19,8 @@ PODS:
     - SteviaLayout (~> 4.7.3)
 
 DEPENDENCIES:
+  - AgoraRtcEngine_iOS
+  - AgoraUIKit_iOS
   - Alamofire
   - CalendarKit
   - DatePickerDialog
@@ -26,6 +31,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AgoraRtcEngine_iOS
+    - AgoraUIKit_iOS
     - Alamofire
     - CalendarKit
     - DatePickerDialog
@@ -37,6 +44,8 @@ SPEC REPOS:
     - YPImagePicker
 
 SPEC CHECKSUMS:
+  AgoraRtcEngine_iOS: a63b9cc61cffc9dfc59e64617e477407b394c5fe
+  AgoraUIKit_iOS: b4c2f58c2a12afeeafef031e0c1ceee37070d023
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   CalendarKit: 133cfd0e96ea93ca69cdae01f7de29987171779d
   DatePickerDialog: ccff2f91ff7a018057a4d72fa5ad6de49c8cb0cd
@@ -47,6 +56,6 @@ SPEC CHECKSUMS:
   Stripe: 326a2160ac541eeffafb8b1aa0c9712e3ce8cec7
   YPImagePicker: 15aed8bcaa4dad976e11b6114126d731a2f9f3c9
 
-PODFILE CHECKSUM: 94c38d5917a9755134980ac3f94a150711a3419a
+PODFILE CHECKSUM: ee9f5fe17866d3bb4c143c3cd73e7208f5dc687b
 
 COCOAPODS: 1.10.0

@@ -14,6 +14,9 @@ import Stripe
 //global variable named appDelegate so we can call it from any class/file.swift
 let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
+//agora app id
+let AppID = "f2952c72fcca4ce288c430cbc4a8f164"
+
 // stores all information about current user
 //var user : NSDictionary?
 

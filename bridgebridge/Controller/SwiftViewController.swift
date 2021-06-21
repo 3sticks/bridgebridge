@@ -16,13 +16,13 @@ class SwiftViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        let controller = UIHostingController(rootView: ContentView())
-//        controller.view.translatesAutoresizingMaskIntoConstraints = false
-        addChild(controller)
-        controller.view.frame = dateswiper.bounds
-        dateswiper.addSubview(controller.view)
-        controller.didMove(toParent: self)
-//        self.view.addSubview(controller.view)
+//        let controller = UIHostingController(rootView: ContentView())
+////        controller.view.translatesAutoresizingMaskIntoConstraints = false
+//        addChild(controller)
+//        controller.view.frame = dateswiper.bounds
+//        dateswiper.addSubview(controller.view)
+//        controller.didMove(toParent: self)
+////        self.view.addSubview(controller.view)
 //        controller.didMove(toParent: self)
 //
 //

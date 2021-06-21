@@ -13,8 +13,8 @@ target 'bridgebridge' do
  pod 'Stripe'
  pod 'CalendarKit'
  pod 'DatePickerDialog'
-
-
+ pod 'AgoraRtcEngine_iOS'
+ pod 'AgoraUIKit_iOS'
 
   target 'bridgebridgeTests' do
     inherit! :search_paths

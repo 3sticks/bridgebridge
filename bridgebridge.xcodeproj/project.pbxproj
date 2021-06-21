@@ -23,6 +23,7 @@
 		9A80574F267E536900EB691D /* UserOwnScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80574E267E536900EB691D /* UserOwnScheduleVC.swift */; };
 		9A805753267E559A00EB691D /* UserViewOwnSchedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A805752267E559A00EB691D /* UserViewOwnSchedCell.swift */; };
 		9A805757267FBB7E00EB691D /* UserLessonVIewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A805756267FBB7E00EB691D /* UserLessonVIewViewController.swift */; };
+		9A80576C267FC12800EB691D /* VIdeoChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80576B267FC12800EB691D /* VIdeoChatViewController.swift */; };
 		9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */; };
 		9A8A9B422672A0EE00791A79 /* SeeTrainerLessonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A9B412672A0EE00791A79 /* SeeTrainerLessonsVC.swift */; };
 		9A8A9B462672AADB00791A79 /* SeeTrainerLessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A9B452672AADB00791A79 /* SeeTrainerLessonCell.swift */; };
@@ -82,6 +83,7 @@
 		9A80574E267E536900EB691D /* UserOwnScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOwnScheduleVC.swift; sourceTree = "<group>"; };
 		9A805752267E559A00EB691D /* UserViewOwnSchedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewOwnSchedCell.swift; sourceTree = "<group>"; };
 		9A805756267FBB7E00EB691D /* UserLessonVIewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLessonVIewViewController.swift; sourceTree = "<group>"; };
+		9A80576B267FC12800EB691D /* VIdeoChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIdeoChatViewController.swift; sourceTree = "<group>"; };
 		9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
 		9A8A9B412672A0EE00791A79 /* SeeTrainerLessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeTrainerLessonsVC.swift; sourceTree = "<group>"; };
 		9A8A9B452672AADB00791A79 /* SeeTrainerLessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeTrainerLessonCell.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				9A80574E267E536900EB691D /* UserOwnScheduleVC.swift */,
 				9A805752267E559A00EB691D /* UserViewOwnSchedCell.swift */,
 				9A805756267FBB7E00EB691D /* UserLessonVIewViewController.swift */,
+				9A80576B267FC12800EB691D /* VIdeoChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				9AEEAF1325E74F3B00A1D75E /* TabBarViewController.swift in Sources */,
 				9AC313A22655F49600634DF5 /* DatePickerController.swift in Sources */,
 				9AAE48C625EF2E57005EEA60 /* UserEditProfileVC.swift in Sources */,
+				9A80576C267FC12800EB691D /* VIdeoChatViewController.swift in Sources */,
 				9A7A179926004FA8003BE62D /* ConnectOnboardViewController.swift in Sources */,
 				9A805753267E559A00EB691D /* UserViewOwnSchedCell.swift in Sources */,
 				9AEEAEFC25E498C500A1D75E /* LandingPageMainViewController.swift in Sources */,
@@ -626,7 +630,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GK4C4589X2;
 				INFOPLIST_FILE = bridgebridge/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -646,7 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GK4C4589X2;
 				INFOPLIST_FILE = bridgebridge/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
