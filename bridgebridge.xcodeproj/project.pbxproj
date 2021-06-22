@@ -15,6 +15,7 @@
 		9A2C6F5426630976001B4B77 /* RenameThisIfItWorksTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C6F5326630976001B4B77 /* RenameThisIfItWorksTVCell.swift */; };
 		9A2C6F582663258B001B4B77 /* TrainerAddNewLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C6F572663258B001B4B77 /* TrainerAddNewLessonViewController.swift */; };
 		9A3694ED25F009BD00A85F56 /* UITextViewToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3694EC25F009BD00A85F56 /* UITextViewToolBar.swift */; };
+		9A58466C268131F000F1A558 /* VideoCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58466B268131F000F1A558 /* VideoCallViewController.swift */; };
 		9A7A178825FE6974003BE62D /* TrainerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A178725FE6974003BE62D /* TrainerProfileViewController.swift */; };
 		9A7A179926004FA8003BE62D /* ConnectOnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A179826004FA8003BE62D /* ConnectOnboardViewController.swift */; };
 		9A7A17A426041FA7003BE62D /* TrainerRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A17A326041FA7003BE62D /* TrainerRegisterVC.swift */; };
@@ -75,6 +76,7 @@
 		9A2C6F5326630976001B4B77 /* RenameThisIfItWorksTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameThisIfItWorksTVCell.swift; sourceTree = "<group>"; };
 		9A2C6F572663258B001B4B77 /* TrainerAddNewLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerAddNewLessonViewController.swift; sourceTree = "<group>"; };
 		9A3694EC25F009BD00A85F56 /* UITextViewToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewToolBar.swift; sourceTree = "<group>"; };
+		9A58466B268131F000F1A558 /* VideoCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallViewController.swift; sourceTree = "<group>"; };
 		9A7A178725FE6974003BE62D /* TrainerProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerProfileViewController.swift; sourceTree = "<group>"; };
 		9A7A179826004FA8003BE62D /* ConnectOnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectOnboardViewController.swift; sourceTree = "<group>"; };
 		9A7A17A326041FA7003BE62D /* TrainerRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerRegisterVC.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				9A805752267E559A00EB691D /* UserViewOwnSchedCell.swift */,
 				9A805756267FBB7E00EB691D /* UserLessonVIewViewController.swift */,
 				9A80576B267FC12800EB691D /* VIdeoChatViewController.swift */,
+				9A58466B268131F000F1A558 /* VideoCallViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				9A805757267FBB7E00EB691D /* UserLessonVIewViewController.swift in Sources */,
 				9A8A9B4A267412ED00791A79 /* UserSelectedLessonVC.swift in Sources */,
 				9A7A17B426053F38003BE62D /* TrainerEditProfileVC.swift in Sources */,
+				9A58466C268131F000F1A558 /* VideoCallViewController.swift in Sources */,
 				9A2C6F38265F15A7001B4B77 /* CustomShitViewController.swift in Sources */,
 				9AEEAF0E25E5EA1900A1D75E /* EmailResestPopViewController.swift in Sources */,
 				9A3694ED25F009BD00A85F56 /* UITextViewToolBar.swift in Sources */,
