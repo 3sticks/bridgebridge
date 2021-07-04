@@ -54,21 +54,21 @@ import SwiftUI
 //this is swiping pages
 //https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-scrolling-pages-of-content-using-tabviewstyle
 
-struct ContentView: View {
-    var body: some View {
-        TabView {
-            Text("First")
-            Text("Second")
-            Text("Third")
-            Text("Fourth")
-        }
-        .tabViewStyle(PageTabViewStyle())
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView: View {
+//    var body: some View {
+//        TabView {
+//            Text("First")
+//            Text("Second")
+//            Text("Third")
+//            Text("Fourth")
+//        }
+//        .tabViewStyle(PageTabViewStyle())
+//    }
+//}
+//
+//
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

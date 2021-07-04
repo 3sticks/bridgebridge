@@ -151,6 +151,40 @@ class UserOwnScheduleVC: UITableViewController {
         
         
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+       
+        //check if cell exists or if we pressed a cell
+        if let cell = sender as? UITableViewCell {
+            
+      
+            
+            let index = tableView.indexPath(for: cell)!.row
+            
+            print(lessons[index])
+            
+            if segue.identifier == "userlesson" {
+                
+                // call trainerprofile to access trainerprofile
+                let UserLessonSelect = segue.destination as! UserLessonViewViewController
+                
+                //  assign trainer info to the trainer var in trainerVC
+                
+                //pass all of the lesson info thats pulled from the cell row index to the lesson NS dictionary variable on the lesson screen
+                UserLessonSelect.lesson = lessons[index] as! NSDictionary
+                
+                // new back button
+//                let backItem = UIBarButtonItem()
+//                backItem.title = ""
+//                navigationItem.backBarButtonItem = backItem
+                
+            }
+            
+        }
+        
+    }
 
 
 }

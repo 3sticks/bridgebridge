@@ -23,7 +23,7 @@
 		9A7A17B426053F38003BE62D /* TrainerEditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7A17B326053F38003BE62D /* TrainerEditProfileVC.swift */; };
 		9A80574F267E536900EB691D /* UserOwnScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80574E267E536900EB691D /* UserOwnScheduleVC.swift */; };
 		9A805753267E559A00EB691D /* UserViewOwnSchedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A805752267E559A00EB691D /* UserViewOwnSchedCell.swift */; };
-		9A805757267FBB7E00EB691D /* UserLessonVIewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A805756267FBB7E00EB691D /* UserLessonVIewViewController.swift */; };
+		9A805757267FBB7E00EB691D /* UserLessonViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A805756267FBB7E00EB691D /* UserLessonViewViewController.swift */; };
 		9A80576C267FC12800EB691D /* VIdeoChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A80576B267FC12800EB691D /* VIdeoChatViewController.swift */; };
 		9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */; };
 		9A8A9B422672A0EE00791A79 /* SeeTrainerLessonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A9B412672A0EE00791A79 /* SeeTrainerLessonsVC.swift */; };
@@ -84,7 +84,7 @@
 		9A7A17B326053F38003BE62D /* TrainerEditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerEditProfileVC.swift; sourceTree = "<group>"; };
 		9A80574E267E536900EB691D /* UserOwnScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOwnScheduleVC.swift; sourceTree = "<group>"; };
 		9A805752267E559A00EB691D /* UserViewOwnSchedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewOwnSchedCell.swift; sourceTree = "<group>"; };
-		9A805756267FBB7E00EB691D /* UserLessonVIewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLessonVIewViewController.swift; sourceTree = "<group>"; };
+		9A805756267FBB7E00EB691D /* UserLessonViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLessonViewViewController.swift; sourceTree = "<group>"; };
 		9A80576B267FC12800EB691D /* VIdeoChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIdeoChatViewController.swift; sourceTree = "<group>"; };
 		9A81BFDC25E7E37A002CD232 /* AccountPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
 		9A8A9B412672A0EE00791A79 /* SeeTrainerLessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeTrainerLessonsVC.swift; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 				9A8A9B49267412ED00791A79 /* UserSelectedLessonVC.swift */,
 				9A80574E267E536900EB691D /* UserOwnScheduleVC.swift */,
 				9A805752267E559A00EB691D /* UserViewOwnSchedCell.swift */,
-				9A805756267FBB7E00EB691D /* UserLessonVIewViewController.swift */,
+				9A805756267FBB7E00EB691D /* UserLessonViewViewController.swift */,
 				9A80576B267FC12800EB691D /* VIdeoChatViewController.swift */,
 				9A58466B268131F000F1A558 /* VideoCallViewController.swift */,
 			);
@@ -451,7 +451,7 @@
 			files = (
 				9A81BFDD25E7E37A002CD232 /* AccountPageViewController.swift in Sources */,
 				9A7A17A8260441A1003BE62D /* TrainerOwnProfileVC.swift in Sources */,
-				9A805757267FBB7E00EB691D /* UserLessonVIewViewController.swift in Sources */,
+				9A805757267FBB7E00EB691D /* UserLessonViewViewController.swift in Sources */,
 				9A8A9B4A267412ED00791A79 /* UserSelectedLessonVC.swift in Sources */,
 				9A7A17B426053F38003BE62D /* TrainerEditProfileVC.swift in Sources */,
 				9A58466C268131F000F1A558 /* VideoCallViewController.swift in Sources */,

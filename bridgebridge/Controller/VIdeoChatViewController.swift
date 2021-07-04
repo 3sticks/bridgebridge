@@ -21,24 +21,35 @@ import AgoraUIKit_iOS
 
 
 class VIdeoChatViewController: UIViewController {
+    
+    var channel = String()
     @IBOutlet weak var videoView: AgoraVideoViewer!
     @IBOutlet weak var styleToggle: UISegmentedControl!
     @IBOutlet weak var videooview: UIView!
     var agoraView: AgoraVideoViewer!
+    
     override func viewDidLoad() {
       super.viewDidLoad()
-        
 
+        self.tabBarController?.tabBar.isHidden = true
+        
+//        self.navigationController?.navigationBar.isHidden = true
+        setupvideo()
+        
+    }
+    //put this in a func
+    func setupvideo() {
+        
         var agSettings = AgoraSettings()
 //        agSettings.enabledButtons = [
 //        ]
-//        agSettings.buttonPosition = .left
+//        agSettings.butto*nPosition = .left
         
         
         self.agoraView = AgoraVideoViewer(
         connectionData: AgoraConnectionData(
           appId: AppID,
-          appToken: "006f2952c72fcca4ce288c430cbc4a8f164IADK2vxldsAPaJrWjxv8iXRZNUoGfzdJVfzGezdLHymyawx+f9gAAAAAEACX33iMw0XSYAEAAQDDRdJg"
+          appToken: "006f2952c72fcca4ce288c430cbc4a8f164IACDYEMHhyIz+/Jt66kqQJanaPcQGsdimYZTadCz7Ykrcn0YBY0AAAAAEAAY899JVwHiYAEAAQBXAeJg"
         ),
             
         agoraSettings: agSettings,
@@ -50,18 +61,35 @@ class VIdeoChatViewController: UIViewController {
         agoraView.fills(view: videooview) //fill in the view you created. i thought of this all by myself.
 //        agoraView.style = .floating // or .floating
       // join the channel "test"
-        agoraView.join(channel: "test", as: .broadcaster)
+        agoraView.join(channel: channel, as: .broadcaster)
         
         self.styleChange(self.styleToggle)
         self.view.bringSubviewToFront(self.styleToggle)
-        
-        
     }
+    
+    
     
     func leaveChannel() {
         agoraView.leaveChannel()
         }
 
+    
+    //if the user leaves and comes back, view doesnt load it appears
+    //FIXME why do the buttons dissapear??
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupvideo()
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+    // Show the Navigation Bar
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.tabBarController?.tabBar.isHidden = false
+        }
     
     @IBAction func styleChange(_ sender: UISegmentedControl) {
     if sender.selectedSegmentIndex == 0 {
@@ -71,18 +99,18 @@ class VIdeoChatViewController: UIViewController {
     }
     }
 
-override func viewDidDisappear(_ animated: Bool) {
-    super.viewDidDisappear(animated)
-    leaveChannel()
-}
-override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    leaveChannel()
-}
+//override func viewDidDisappear(_ animated: Bool) {
+//    super.viewDidDisappear(animated)
+//    leaveChannel()
+//}
+//override func viewWillDisappear(_ animated: Bool) {
+//    super.viewWillDisappear(animated)
+//    leaveChannel()
+//}
 
-    override func viewWillAppear(_ animated: Bool) {
-        agoraView.join(channel: "test", as: .broadcaster)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        agoraView.join(channel: "test", as: .broadcaster)
+//    }
 
 }
 
@@ -106,8 +134,8 @@ extension VIdeoChatViewController: AgoraVideoViewerDelegate {
   @objc func clickedBolt(sender: UIButton) {
     print("zap!")
     sender.isSelected.toggle()
-    sender.backgroundColor = sender.isSelected ?
-      .systemYellow : .systemGray
+//    sender.backgroundColor = sender.isSelected ?
+//      .systemYellow : .systemGray
     
     
     let alert = UIAlertController(title: "Are you sure you want to leave?", message: "I added this in case you pressed hang up by accident.", preferredStyle: .alert)
@@ -117,19 +145,15 @@ extension VIdeoChatViewController: AgoraVideoViewerDelegate {
         print("yes")
         self.agoraView.leaveChannel()
         //send the user to the lesson page
+        self.navigationController!.popViewController(animated: true)
+
         
      })
     
     let no = UIAlertAction(title: "Stay", style: .cancel, handler: { (action) -> Void in
         print("cancel")
         
-//                    if let firstViewController = self.navigationController?.viewControllers. {
-//                        self.navigationController?.popToViewController(firstViewController, animated: true)
-//                    }
-        //go back one view  (back to the trainer lesson page)
-//        self.navigationController?.popViewController(animated: true)
-        
-        //send the user back to the trainer page
+
      })
     
     //Add OK button to a dialog message
