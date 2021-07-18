@@ -29,6 +29,7 @@
 		9A8A9B422672A0EE00791A79 /* SeeTrainerLessonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A9B412672A0EE00791A79 /* SeeTrainerLessonsVC.swift */; };
 		9A8A9B462672AADB00791A79 /* SeeTrainerLessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A9B452672AADB00791A79 /* SeeTrainerLessonCell.swift */; };
 		9A8A9B4A267412ED00791A79 /* UserSelectedLessonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A9B49267412ED00791A79 /* UserSelectedLessonVC.swift */; };
+		9A90A34B26A4D0C200E1F8E3 /* OpenTokVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A90A34A26A4D0C200E1F8E3 /* OpenTokVideoVC.swift */; };
 		9AAD79E025FDB34900D46321 /* TrainersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD79DF25FDB34900D46321 /* TrainersVC.swift */; };
 		9AAD79E425FDB38900D46321 /* trainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAD79E325FDB38900D46321 /* trainers.swift */; };
 		9AAE48C625EF2E57005EEA60 /* UserEditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE48C525EF2E57005EEA60 /* UserEditProfileVC.swift */; };
@@ -90,6 +91,7 @@
 		9A8A9B412672A0EE00791A79 /* SeeTrainerLessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeTrainerLessonsVC.swift; sourceTree = "<group>"; };
 		9A8A9B452672AADB00791A79 /* SeeTrainerLessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeTrainerLessonCell.swift; sourceTree = "<group>"; };
 		9A8A9B49267412ED00791A79 /* UserSelectedLessonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectedLessonVC.swift; sourceTree = "<group>"; };
+		9A90A34A26A4D0C200E1F8E3 /* OpenTokVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenTokVideoVC.swift; sourceTree = "<group>"; };
 		9AAD79DF25FDB34900D46321 /* TrainersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainersVC.swift; sourceTree = "<group>"; };
 		9AAD79E325FDB38900D46321 /* trainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trainers.swift; sourceTree = "<group>"; };
 		9AAE48C525EF2E57005EEA60 /* UserEditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditProfileVC.swift; sourceTree = "<group>"; };
@@ -174,6 +176,14 @@
 			path = "SwiftUI VIews";
 			sourceTree = "<group>";
 		};
+		9A90A34726A4D0AB00E1F8E3 /* OpenTok */ = {
+			isa = PBXGroup;
+			children = (
+				9A90A34A26A4D0C200E1F8E3 /* OpenTokVideoVC.swift */,
+			);
+			path = OpenTok;
+			sourceTree = "<group>";
+		};
 		9AEEAEC325E4986D00A1D75E = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +232,7 @@
 		9AEEAEF425E4987400A1D75E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9A90A34726A4D0AB00E1F8E3 /* OpenTok */,
 				9A05DFE2265C8DA10037EF97 /* SwiftUI VIews */,
 				9A7A17A326041FA7003BE62D /* TrainerRegisterVC.swift */,
 				9A7A17A7260441A1003BE62D /* TrainerOwnProfileVC.swift */,
@@ -476,6 +487,7 @@
 				9A7A179926004FA8003BE62D /* ConnectOnboardViewController.swift in Sources */,
 				9A805753267E559A00EB691D /* UserViewOwnSchedCell.swift in Sources */,
 				9AEEAEFC25E498C500A1D75E /* LandingPageMainViewController.swift in Sources */,
+				9A90A34B26A4D0C200E1F8E3 /* OpenTokVideoVC.swift in Sources */,
 				9AAD79E025FDB34900D46321 /* TrainersVC.swift in Sources */,
 				9AC313A62655F64B00634DF5 /* CalandarViewController.swift in Sources */,
 				9AEEAEFD25E498C500A1D75E /* LogInViewController.swift in Sources */,

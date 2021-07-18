@@ -15,6 +15,7 @@ target 'bridgebridge' do
  pod 'DatePickerDialog'
  pod 'AgoraRtcEngine_iOS'
  pod 'AgoraUIKit_iOS'
+ pod 'OpenTok'
 
   target 'bridgebridgeTests' do
     inherit! :search_paths

@@ -752,6 +752,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBp-OT-a1p">
+                                <rect key="frame" x="180" y="511" width="46" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="SuE-Za-9HC" kind="show" id="vMi-Yu-LwJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XFZ-Tn-VEa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -780,6 +788,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXk-11-D9E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4120.289855072464" y="1344.6428571428571"/>
+        </scene>
+        <!--Open Tok VideoVC-->
+        <scene sceneID="4Wo-rS-rjX">
+            <objects>
+                <viewController id="SuE-Za-9HC" customClass="OpenTokVideoVC" customModule="bridgebridge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5DC-pg-ke2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Tdk-Wb-3U8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9Fc-t4-esi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E4g-YR-LHt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5160" y="1869"/>
         </scene>
         <!--My Lessons-->
         <scene sceneID="AAV-0f-7zp">
