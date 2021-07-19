@@ -17,18 +17,131 @@ var kSessionId = "2_MX40NzI4MTU4NH5-MTYyNjY0MzE5NDUxN35aZTlPYmdnWnd2bElWM2hVSWVx
 //token
 var kToken = "T1==cGFydG5lcl9pZD00NzI4MTU4NCZzaWc9NDliNzJkMjE4ZGQ0MzA5ZjI0OGNiNmE3NGNhNDdjNDg5MGNhYzdjYjpzZXNzaW9uX2lkPTJfTVg0ME56STRNVFU0Tkg1LU1UWXlOalkwTXpFNU5EVXhOMzVhWlRsUFltZG5XbmQyYkVsV00yaFZTV1Z4VDBkd1JGSi1mZyZjcmVhdGVfdGltZT0xNjI2NjQzMzAzJm5vbmNlPTAuMjkxNzQ0MTU2ODkxNDUwNyZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNjI5MjM1MzAzJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9"
 
+var showbutton = true
+
+
 class OpenTokVideoVC: UIViewController {
+    @IBOutlet weak var leaveButton: UIButton!
     var session: OTSession?
     var publisher: OTPublisher?
     var subscriber: OTSubscriber?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        leaveButton.layer.cornerRadius = leaveButton.frame.size.width/2
+        leaveButton.clipsToBounds = true
+//        connectToAnOpenTokSession()
         
-        connectToAnOpenTokSession()
 
         self.tabBarController?.tabBar.isHidden = true
+        
+        
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
+        let url = URL(string: "https://bridgeyboy.herokuapp.com/session")
+        let dataTask = session.dataTask(with: url!) {
+            (data: Data?, response: URLResponse?, error: Error?) in
+
+            guard error == nil, let data = data else {
+                print(error!)
+                return
+            }
+
+            let dict = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [AnyHashable: Any]
+            kApiKey = dict?["apiKey"] as? String ?? ""
+            kSessionId = dict?["sessionId"] as? String ?? ""
+            kToken = dict?["token"] as? String ?? ""
+            self.connectToAnOpenTokSession()
+        }
+        dataTask.resume()
+        session.finishTasksAndInvalidate()
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func tapOnScreen(_ sender: Any) {
+        
+        if leaveButton.isHidden == true{
+            leaveButton.isHidden = false
+
+        } else{
+
+            //see below my thoughts on animation
+//            let duration: TimeInterval = 1.0
+//                    UIView.animate(withDuration: duration, animations: {
+//                        self.leaveButton.frame.origin.y = 50
+//                        }, completion: nil)
+            leaveButton.isHidden = true
+
+        }
+
+        
+        // one day make the fucking animation cool but how about right now yo just work on the fuckin app you dumb fuck
+        //ok
+////        https://stackoverflow.com/questions/27361964/moving-a-button-vertically-swift
+//        if showbutton == true{
+//
+//            let duration: TimeInterval = 1.0
+//                    UIView.animate(withDuration: duration, animations: {
+//                        self.leaveButton.frame.origin.y = 50
+//                        }, completion: nil)
+//
+//            showbutton = false
+//
+//        } else {
+//
+//            leaveButton.isHidden = true
+////            let duration: TimeInterval = 1.0
+////                    UIView.animate(withDuration: duration, animations: {
+////                        self.leaveButton.frame.origin.y = -50
+////                        }, completion: nil)
+//
+//            showbutton = true
+//
+//
+//        }
+        
+    }
+    
+    
+    
+    //this is me flying solo here
+    @IBAction private func leave() {
+        
+        
+        
+        let alert = UIAlertController(title: "Are you sure you want to leave?", message: "I added this in case you pressed hang up by accident.", preferredStyle: .alert)
+        
+        //destructive style highlights it red
+        let yes = UIAlertAction(title: "Leave", style: .destructive, handler: { (action) -> Void in
+            print("yes")
+            var error: OTError?
+            self.session?.disconnect(&error)
+
+            if let error = error {
+              print("An error occurred disconnecting from the session", error)
+            } else {
+//                self.navigationController?.popViewController(animated: true)
+            }
+            //send the user to the lesson page
+            //self.navigationController!.popViewController(animated: true)
+
+            
+         })
+        
+        let no = UIAlertAction(title: "Stay", style: .cancel, handler: { (action) -> Void in
+            print("cancel")
+            
+
+         })
+        
+        //Add OK button to a dialog message
+        alert.addAction(yes)
+        alert.addAction(no)
+
+        self.present(alert, animated: true)
+        
+        
+
     }
     
     

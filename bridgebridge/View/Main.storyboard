@@ -796,12 +796,42 @@
                     <view key="view" contentMode="scaleToFill" id="5DC-pg-ke2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTd-Mz-NWu">
+                                <rect key="frame" x="174.66666666666666" y="748" width="65" height="65"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="Vbe-Np-YcP"/>
+                                    <constraint firstAttribute="width" constant="65" id="zQ7-IZ-2lT"/>
+                                </constraints>
+                                <state key="normal" image="phone.down" catalog="system"/>
+                                <connections>
+                                    <action selector="leave" destination="SuE-Za-9HC" eventType="touchUpInside" id="kId-Ki-d16"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Tdk-Wb-3U8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="XTd-Mz-NWu" firstAttribute="bottom" secondItem="Tdk-Wb-3U8" secondAttribute="bottom" id="AB6-zw-W7L"/>
+                            <constraint firstItem="XTd-Mz-NWu" firstAttribute="centerX" secondItem="5DC-pg-ke2" secondAttribute="centerX" id="Gq9-mb-CVK"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="SFs-iJ-a0M" appends="YES" id="gza-Oo-4C0"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="9Fc-t4-esi"/>
+                    <connections>
+                        <outlet property="leaveButton" destination="XTd-Mz-NWu" id="7wW-oQ-B6z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4g-YR-LHt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="SFs-iJ-a0M">
+                    <connections>
+                        <action selector="tapOnScreen:" destination="SuE-Za-9HC" id="dgx-Lf-ZBV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5160" y="1869"/>
         </scene>
@@ -2539,6 +2569,7 @@
         <image name="logo" width="640" height="394.66665649414062"/>
         <image name="muteButton" width="372" height="372"/>
         <image name="muteButtonSelected" width="372" height="372"/>
+        <image name="phone.down" catalog="system" width="128" height="57"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="profile" width="21" height="24"/>
         <image name="switchCameraButton" width="372" height="372"/>
