@@ -9,36 +9,66 @@
 import UIKit
 import OpenTok
 
+//ISSUES
+//
+//If one user leaves and then comes back, theyre frozen. other user has to reset. 
+//
+
 
 //OpenTok API key
-var kApiKey = "47281584"
+var kApiKey = ""
 //session ID
-var kSessionId = "2_MX40NzI4MTU4NH5-MTYyNjY0MzE5NDUxN35aZTlPYmdnWnd2bElWM2hVSWVxT0dwRFJ-fg"
+var kSessionId = ""
 //token
-var kToken = "T1==cGFydG5lcl9pZD00NzI4MTU4NCZzaWc9NDliNzJkMjE4ZGQ0MzA5ZjI0OGNiNmE3NGNhNDdjNDg5MGNhYzdjYjpzZXNzaW9uX2lkPTJfTVg0ME56STRNVFU0Tkg1LU1UWXlOalkwTXpFNU5EVXhOMzVhWlRsUFltZG5XbmQyYkVsV00yaFZTV1Z4VDBkd1JGSi1mZyZjcmVhdGVfdGltZT0xNjI2NjQzMzAzJm5vbmNlPTAuMjkxNzQ0MTU2ODkxNDUwNyZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNjI5MjM1MzAzJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9"
+var kToken = ""
+
+
+
 
 var showbutton = true
 
 
+
+
 class OpenTokVideoVC: UIViewController {
+    
+
+    
+    //channel that gets passed
+    var channel = ""
+    
+    @IBOutlet weak var buttonstack: UIStackView!
+    
     @IBOutlet weak var leaveButton: UIButton!
+    @IBOutlet weak var micButton: UIButton!
     var session: OTSession?
     var publisher: OTPublisher?
     var subscriber: OTSubscriber?
+    
+    //start off with mike not muted
+    var ismikemuted = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        //mike starts hot
+        
+        
         leaveButton.layer.cornerRadius = leaveButton.frame.size.width/2
         leaveButton.clipsToBounds = true
+        micButton.layer.cornerRadius = leaveButton.frame.size.width/2
+        micButton.clipsToBounds = true
 //        connectToAnOpenTokSession()
         
-
         self.tabBarController?.tabBar.isHidden = true
         
         
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
-        let url = URL(string: "https://bridgeyboy.herokuapp.com/session")
+        //url with channel passed
+        let urlurl = "https://bridgeyboy.herokuapp.com/room/\(channel)"
+        
+        let url = URL(string: urlurl)
         let dataTask = session.dataTask(with: url!) {
             (data: Data?, response: URLResponse?, error: Error?) in
 
@@ -60,8 +90,8 @@ class OpenTokVideoVC: UIViewController {
     
     @IBAction func tapOnScreen(_ sender: Any) {
         
-        if leaveButton.isHidden == true{
-            leaveButton.isHidden = false
+        if buttonstack.isHidden == true{
+            buttonstack.isHidden = false
 
         } else{
 
@@ -70,9 +100,11 @@ class OpenTokVideoVC: UIViewController {
 //                    UIView.animate(withDuration: duration, animations: {
 //                        self.leaveButton.frame.origin.y = 50
 //                        }, completion: nil)
-            leaveButton.isHidden = true
+            buttonstack.isHidden = true
 
         }
+        
+        
 
         
         // one day make the fucking animation cool but how about right now yo just work on the fuckin app you dumb fuck
@@ -101,6 +133,21 @@ class OpenTokVideoVC: UIViewController {
 //        }
         
     }
+    
+    
+    //if the user leaves and comes back, view doesnt load it appears
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+    // Show the Navigation Bar
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.tabBarController?.tabBar.isHidden = false
+        }
     
     
     
@@ -145,6 +192,49 @@ class OpenTokVideoVC: UIViewController {
     }
     
     
+    @IBAction func muteMike(_ sender: Any) {
+        
+        
+        let settings = OTPublisherSettings()
+            settings.name = UIDevice.current.name
+            guard let publisher = OTPublisher(delegate: self, settings: settings) else {
+                return
+            }
+
+        //this doesnt update the other users screen
+        
+        publisher.cameraPosition = .back
+        var error: OTError?
+    session!.publish(publisher, error: &error)
+        guard error == nil else {
+            print(error!)
+            return
+        }
+
+        guard let publisherView = publisher.view else {
+            return
+        }
+        let screenBounds = UIScreen.main.bounds
+        publisherView.frame = CGRect(x: screenBounds.width - 150 - 20, y: screenBounds.height - 150 - 20, width: 150, height: 150)
+        view.addSubview(publisherView)
+
+//THEY DONT TELL YOU YOU NEED TO ADD ALL THIS FUCKING SHIT AT THE END
+
+        
+    }
+    
+    //maybe put it in here???
+    func publisher(_ publisher: OTPublisher, didChangeCameraPosition position: AVCaptureDevice.Position) {
+        if position == .front {
+            // front camera
+        } else {
+            print("CAMERA IS BACK CAMERA MOTHERFUCKER")
+
+        }
+    }
+    
+    
+    
     func connectToAnOpenTokSession() {
         session = OTSession(apiKey: kApiKey, sessionId: kSessionId, delegate: self)
         var error: OTError?
@@ -155,16 +245,6 @@ class OpenTokVideoVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
@@ -174,9 +254,23 @@ extension OpenTokVideoVC : OTSessionDelegate {
     
     let settings = OTPublisherSettings()
         settings.name = UIDevice.current.name
+    settings.cameraResolution = .high
+    settings.cameraFrameRate = .rate30FPS
         guard let publisher = OTPublisher(delegate: self, settings: settings) else {
             return
         }
+
+    
+    
+    
+//    AVCaptureDevice.requestAccess(for: .video) { granted in
+//        if granted {
+//            // Access to the camera is granted. You can publish.
+//        } else {
+//            // Access to the camera is not granted.
+//        }
+//    }
+    
 
         var error: OTError?
         session.publish(publisher, error: &error)

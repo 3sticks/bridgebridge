@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Izm-6n-xhi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Izm-6n-xhi">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -523,7 +523,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="trainersID" rowHeight="120" id="FQi-z8-qWj" customClass="trainers" customModule="bridgebridge" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="120"/>
+                                <rect key="frame" x="0.0" y="68.333333969116211" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FQi-z8-qWj" id="Bxc-Vn-EMV">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
@@ -644,7 +644,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userviewownsched" rowHeight="120" id="nA9-2b-DxY" customClass="UserViewOwnSchedCell" customModule="bridgebridge" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
+                                <rect key="frame" x="0.0" y="24.333333969116211" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nA9-2b-DxY" id="scB-zm-yHt">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
@@ -792,30 +792,46 @@
         <!--Open Tok VideoVC-->
         <scene sceneID="4Wo-rS-rjX">
             <objects>
-                <viewController id="SuE-Za-9HC" customClass="OpenTokVideoVC" customModule="bridgebridge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="videochatOT" id="SuE-Za-9HC" customClass="OpenTokVideoVC" customModule="bridgebridge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5DC-pg-ke2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTd-Mz-NWu">
-                                <rect key="frame" x="174.66666666666666" y="748" width="65" height="65"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLg-bD-Uo4">
+                                <rect key="frame" x="142" y="748" width="130" height="65"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTd-Mz-NWu">
+                                        <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="65" id="CN6-35-0lL"/>
+                                        </constraints>
+                                        <state key="normal" image="phone.down" catalog="system"/>
+                                        <connections>
+                                            <action selector="leave" destination="SuE-Za-9HC" eventType="touchUpInside" id="kId-Ki-d16"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjS-Ty-DwN">
+                                        <rect key="frame" x="65" y="0.0" width="65" height="65"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="mic.slash.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="muteMike:" destination="SuE-Za-9HC" eventType="touchUpInside" id="aKo-fE-Jn6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="Vbe-Np-YcP"/>
-                                    <constraint firstAttribute="width" constant="65" id="zQ7-IZ-2lT"/>
+                                    <constraint firstAttribute="width" constant="130" id="9ci-oM-HFV"/>
+                                    <constraint firstAttribute="height" constant="65" id="tgI-oN-hYp"/>
                                 </constraints>
-                                <state key="normal" image="phone.down" catalog="system"/>
-                                <connections>
-                                    <action selector="leave" destination="SuE-Za-9HC" eventType="touchUpInside" id="kId-Ki-d16"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tdk-Wb-3U8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="XTd-Mz-NWu" firstAttribute="bottom" secondItem="Tdk-Wb-3U8" secondAttribute="bottom" id="AB6-zw-W7L"/>
-                            <constraint firstItem="XTd-Mz-NWu" firstAttribute="centerX" secondItem="5DC-pg-ke2" secondAttribute="centerX" id="Gq9-mb-CVK"/>
+                            <constraint firstItem="vLg-bD-Uo4" firstAttribute="centerX" secondItem="5DC-pg-ke2" secondAttribute="centerX" id="2dX-lM-ob8"/>
+                            <constraint firstItem="vLg-bD-Uo4" firstAttribute="bottom" secondItem="Tdk-Wb-3U8" secondAttribute="bottom" id="3S1-yZ-d0Z"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="SFs-iJ-a0M" appends="YES" id="gza-Oo-4C0"/>
@@ -823,7 +839,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="9Fc-t4-esi"/>
                     <connections>
+                        <outlet property="buttonstack" destination="vLg-bD-Uo4" id="DnR-f0-0fH"/>
                         <outlet property="leaveButton" destination="XTd-Mz-NWu" id="7wW-oQ-B6z"/>
+                        <outlet property="micButton" destination="mjS-Ty-DwN" id="Kim-Zb-MWT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4g-YR-LHt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1256,11 +1274,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mky-hO-Nmf">
-                                <rect key="frame" x="0.0" y="448" width="414" height="365"/>
+                                <rect key="frame" x="0.0" y="446.66666666666674" width="414" height="366.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="120" id="KWA-Rs-f31" customClass="RenameThisIfItWorksTVCell" customModule="bridgebridge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="120"/>
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KWA-Rs-f31" id="46H-pu-Q7Q">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
@@ -1307,7 +1325,7 @@
                                 </connections>
                             </tableView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="cXP-u5-N6Q">
-                                <rect key="frame" x="11.666666666666657" y="93" width="391" height="353"/>
+                                <rect key="frame" x="11.666666666666657" y="93.000000000000028" width="391" height="351.66666666666674"/>
                                 <color key="tintColor" red="0.82410591840000003" green="0.75670403239999995" blue="0.54182463879999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="dateChanged:" destination="BbG-el-W4u" eventType="valueChanged" id="UVZ-V3-yQ4"/>
@@ -2025,11 +2043,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ahw-tj-AOx">
-                                <rect key="frame" x="0.0" y="448" width="414" height="365"/>
+                                <rect key="frame" x="0.0" y="446.66666666666674" width="414" height="366.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="seeTrainerLessonCellID" rowHeight="120" id="mFL-Bt-jhT" customClass="SeeTrainerLessonCell" customModule="bridgebridge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="120"/>
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mFL-Bt-jhT" id="oxp-bD-aHY">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
@@ -2087,7 +2105,7 @@
                                 </connections>
                             </tableView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="RgQ-me-hLL">
-                                <rect key="frame" x="11.666666666666657" y="93" width="391" height="353"/>
+                                <rect key="frame" x="11.666666666666657" y="93.000000000000028" width="391" height="351.66666666666674"/>
                                 <color key="tintColor" red="0.82410591840000003" green="0.75670403239999995" blue="0.54182463879999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="dateChanged:" destination="SPh-ZA-nT8" eventType="valueChanged" id="MVc-6B-Vtv"/>
@@ -2567,6 +2585,7 @@
         <image name="live" width="24" height="21"/>
         <image name="localVideoMutedBg" width="90" height="120"/>
         <image name="logo" width="640" height="394.66665649414062"/>
+        <image name="mic.slash.fill" catalog="system" width="108" height="128"/>
         <image name="muteButton" width="372" height="372"/>
         <image name="muteButtonSelected" width="372" height="372"/>
         <image name="phone.down" catalog="system" width="128" height="57"/>

@@ -77,16 +77,21 @@ class UserLessonViewViewController: UIViewController {
     
     @IBAction func joinLessson(_ sender: Any) {
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "videochat") as! VIdeoChatViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "videochatOT") as! OpenTokVideoVC
         vc.channel = "POOP"     
         vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
 //        self.present(vc, animated: true, completion: nil)
 //        performSegue(withIdentifier: "TOVIDEO", sender: self)
         navigationController?.pushViewController(vc, animated: true)
-        
-        print(vc.channel)
+
         
     }
+    
+    
+    
+    
+    
+    
     
 //
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
